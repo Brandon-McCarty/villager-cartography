@@ -1,9 +1,10 @@
-import {useDispatch} from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
 
 function WorldList() {
 
     const dispatch = useDispatch();
+    const worlds = useSelector(store => store.worldsReducer)
 
     useEffect(() => {
         // dispatch to get all worlds to display on the DOM
@@ -11,7 +12,13 @@ function WorldList() {
     }, []);
 
   return (
-    <div>WorldList</div>
+    <div>
+        <ul>
+        {worlds.map(world => {
+            return (<li key={world.id}>{world.world_name}</li>)
+        })}
+        </ul>
+    </div>
   )
 }
 

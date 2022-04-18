@@ -5,6 +5,7 @@ function* getWorlds () {
     try {
         const worlds = yield axios.get('/worlds');
         console.log(worlds.data);
+        yield put({type: 'SET_WORLDS', payload: worlds.data})
     } catch (err) {
         console.log(err);
     }
