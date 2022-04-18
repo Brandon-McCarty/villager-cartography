@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import WorldList from '../WorldList/WorldList';
+import LocationsList from '../LocationsList/LocationsList';
 
 import './App.css';
 
@@ -118,12 +119,21 @@ function App() {
             <WorldList />
           </ProtectedRoute>
 
+          <ProtectedRoute
+            exact
+            path="/locations/:id"
+          >
+            <LocationsList
+              
+            />
+          </ProtectedRoute>
+
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
 
-        
+
         </Switch>
         <Footer />
       </div>
