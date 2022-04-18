@@ -2,14 +2,16 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
+
 
 //  * GET route for /worlds
-router.get('/', (req, res) => {
-  // Select all worlds for the logged in user
+router.get('/', rejectUnauthenticated, (req, res) => {
+    // Select all worlds for the current user
     const query = `
-                    SELECT * FROM "worlds" 
-                    WHERE "user_id" = $1;
-                    `;
+                SELECT * FROM "worlds" 
+                WHERE "user_id" = $1;
+                `;
     pool.query(query, [req.user.id])
         .then(result => {
             res.send(result.rows)
@@ -22,8 +24,20 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
-  // POST route code here
+router.post('/', rejectUnauthenticated, (req, res) => {
+    // Add new world from user input
+    const query = `
+                INSERT INTO "worlds" ("world_name", "user_id")
+                VALUES ($1, $2);
+                `;
+    const values = [req.body.world_name, req.user.id]
+
+    pool.query(query, values)
+        .then(result => {
+            res.sendStatus(201);
+        }).catch(err => {
+            console.log('Error in creating new world', err);
+        })
 });
 
 module.exports = router;
