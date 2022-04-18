@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
         .catch(err => {
             console.log('Error in getting worlds', err);
         })
-});
+}); // END GET for /worlds
 
 /**
  * POST route template
