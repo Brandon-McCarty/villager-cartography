@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux'
 import {useState} from 'react';
 
-function WorldForm() {
+function WorldForm({setTrigger}) {
 
     const dispatch = useDispatch();
 
@@ -12,12 +12,19 @@ function WorldForm() {
     const addNewWorld = (event) => {
         event.preventDefault();
         dispatch({type: 'ADD_WORLD', payload: {world_name: newWorld}})
+        setTrigger(false);
+        setNewWorld('');
+        
     }
 
   return (
     <>
+
+        <h2>Add a New World</h2>
         <form action="submit">
-            <input 
+            <label htmlFor="name-input">World Name:</label>
+            <input
+            id="name-input"
             placeholder="Enter World Name" 
             type="text"
             value={newWorld}

@@ -11,9 +11,8 @@ function WorldFormPopup({ trigger, setTrigger }) {
           variant="contained"
           className="close-button"
           onClick={() => setTrigger(false)}
-          style={{
-            borderRadius: 10,
-            backgroundColor: "#FF6961",
+          style={{           
+            backgroundColor: "#d43c2c",
             padding: "9px 18px",
             fontSize: "14px",
             fontColor: "white"
