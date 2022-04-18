@@ -1,5 +1,3 @@
-
-
 function WorldItem({world}) {
   return (
     <div>
