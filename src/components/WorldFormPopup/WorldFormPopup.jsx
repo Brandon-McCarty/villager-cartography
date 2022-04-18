@@ -1,9 +1,9 @@
-import './Popup.css'
+import './WorldFormPopup.css'
 import WorldForm from '../WorldForm/WorldForm';
 // Material UI
 import { Button } from '@material-ui/core';
 
-function Popup({ trigger, setTrigger }) {
+function WorldFormPopup({ trigger, setTrigger }) {
   return (trigger) ? (
     <div className="popup">
       <div className="popup-inner">
@@ -27,4 +27,4 @@ function Popup({ trigger, setTrigger }) {
   ) : '';
 }
 
-export default Popup;
+export default WorldFormPopup;

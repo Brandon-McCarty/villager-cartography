@@ -2,7 +2,7 @@ import {useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import WorldItem from '../WorldItem/WorldItem';
-import Popup from '../Popup/Popup';
+import Popup from '../WorldFormPopup/WorldFormPopup';
 
 function WorldList() {
 
@@ -12,7 +12,7 @@ function WorldList() {
     const [worldFormTrigger, setWorldFormTrigger] = useState(false);
 
     const addNewWorld = () => {
-        console.log('ADD WORLD');
+        // Allow the form to conditionally render
         setWorldFormTrigger(true);
     }
 
