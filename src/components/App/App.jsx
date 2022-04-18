@@ -119,14 +119,21 @@ function App() {
             <WorldList />
           </ProtectedRoute>
 
-          
+          <ProtectedRoute
+            exact
+            path="/locations"
+          >
+            <LocationsList
+              
+            />
+          </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
             <h1>404</h1>
           </Route>
 
-        
+
         </Switch>
         <Footer />
       </div>

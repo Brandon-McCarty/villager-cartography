@@ -2,17 +2,19 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
-    // GET route code here
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+    // GET for locations of chosen world
+    console.log('ID IS', req.params.id);
     const query = `
                 SELECT * FROM "locations"
                 WHERE world_id = $1;
                 `;
 
-    pool.query(query, [req.body.id])
+    pool.query(query, [req.params.id])
         .then(result => {
             res.send(result.rows);
         }).catch(err => {
