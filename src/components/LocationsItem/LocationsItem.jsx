@@ -1,5 +1,5 @@
 
-
+// Display most beneficial information to user at a quick glance
 function LocationsItem({location}) {
     return (
         <div>
@@ -8,4 +8,4 @@ function LocationsItem({location}) {
     )
 }
 
-export default LocationsItem
+export default LocationsItem;
