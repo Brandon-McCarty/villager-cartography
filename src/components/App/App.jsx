@@ -20,6 +20,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import WorldList from '../WorldList/WorldList';
+import LocationsList from '../LocationsList/LocationsList';
 
 import './App.css';
 
@@ -117,6 +118,8 @@ function App() {
           >
             <WorldList />
           </ProtectedRoute>
+
+          
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
