@@ -14,10 +14,15 @@ function LocationsList() {
         dispatch({type: 'GET_LOCATIONS', payload: id});
     }, []);
 
+    const addNewLocation = () => {
+        console.log('ADDING LOCATION');
+    }
+
 
     console.log('ID IS', id);
   return (
     <div>
+        <button onClick={addNewLocation}>Add Location</button>
         <p>LOCATIONS</p>
         {locations?.map(location => {
             return(
