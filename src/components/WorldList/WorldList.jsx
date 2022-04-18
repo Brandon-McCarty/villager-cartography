@@ -1,10 +1,15 @@
 import {useDispatch, useSelector} from 'react-redux'
 import {useEffect} from 'react'
+import WorldItem from '../WorldItem/WorldItem';
 
 function WorldList() {
 
     const dispatch = useDispatch();
     const worlds = useSelector(store => store.worldsReducer)
+
+    const addNewWorld = () => {
+        
+    }
 
     useEffect(() => {
         // dispatch to get all worlds to display on the DOM
@@ -12,13 +17,18 @@ function WorldList() {
     }, []);
 
   return (
-    <div>
+    <>
+        <button onClick={addNewWorld}>ADD WORLD</button>
         <ul>
         {worlds.map(world => {
-            return (<li key={world.id}>{world.world_name}</li>)
+            return (
+            <WorldItem 
+                key={world.id}
+                world={world}
+            />)
         })}
         </ul>
-    </div>
+    </>
   )
 }
 
