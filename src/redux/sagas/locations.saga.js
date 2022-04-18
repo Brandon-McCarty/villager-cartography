@@ -5,7 +5,7 @@ import { put, takeEvery } from 'redux-saga/effects';
 function* getLocations (action) {
     try {
         const locations = yield axios.get(`/locations/${action.payload}`);
-        console.log(locations.data);
+        console.log('locations are', locations.data);
         yield put({type: 'SET_LOCATIONS', payload: locations.data})
     } catch (err) {
         console.log(err);

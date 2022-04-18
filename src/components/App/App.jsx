@@ -121,7 +121,7 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/locations"
+            path="/locations/:id"
           >
             <LocationsList
               
