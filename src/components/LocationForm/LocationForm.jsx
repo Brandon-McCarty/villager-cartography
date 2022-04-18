@@ -1,8 +1,13 @@
 import {useDispatch} from 'react-redux'
 import {useState} from 'react';
+import { useParams } from 'react-router-dom'
 
 function LocationForm() {
 
+    const dispatch = useDispatch();
+    const id = useParams().id;
+
+    // grab user input
     const [newLocationName, setNewLocationName] = useState('');
     const [xCoordinate, setXCoordinate] = useState('');
     const [yCoordinate, setYCoordinate] = useState('');
@@ -12,7 +17,16 @@ function LocationForm() {
 
     const addLocation = (event) => {
         event.preventDefault();
-        console.log(exploredStatus);
+        console.log(id);
+        dispatch({type: 'ADD_LOCATION', payload: {
+            location_name: newLocationName, 
+            x_coordinate: xCoordinate, 
+            y_coordinate: yCoordinate,
+            z_coordinate: zCoordinate,
+            description: description,
+            explored_status: exploredStatus,
+            world_id: id
+        }})
     }
 
     return (

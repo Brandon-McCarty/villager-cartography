@@ -25,7 +25,7 @@ function* addNewLocation (action) {
 // All sagas for /locations route
 function* locationsSaga () {
     yield takeEvery('GET_LOCATIONS', getLocations);
-    yield takeEvery('ADD_WORLD', addNewLocation)
+    yield takeEvery('ADD_LOCATION', addNewLocation)
 }
 
 export default locationsSaga;
