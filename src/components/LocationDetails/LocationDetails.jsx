@@ -18,7 +18,12 @@ function LocationDetails() {
     console.log(details);
   return (
     <div>
-        <h3>Name: {details.location_name}</h3>
+        <h2>{details.location_name}</h2>
+        <h3>Coordinates: </h3>
+        <p>{details.x_coordinate}, {details.y_coordinate}, {details.z_coordinate}</p>
+        <h3>Comments:</h3>
+        <p>{details.description}</p>
+        <h3>{details.explored_status ? 'Explored' : 'Unexplored'}</h3>
     </div>
   )
 }
