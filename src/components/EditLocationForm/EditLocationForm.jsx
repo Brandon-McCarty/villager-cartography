@@ -1,8 +1,8 @@
 import {useDispatch} from 'react-redux'
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom'
 
-function EditLocationForm({setTrigger}) {
+function EditLocationForm() {
 
     const dispatch = useDispatch();
     const id = useParams().id;
@@ -19,16 +19,20 @@ function EditLocationForm({setTrigger}) {
         event.preventDefault();
         console.log(id);
         dispatch({type: 'ADD_LOCATION', payload: {
+            id: id,
             location_name: newLocationName, 
             x_coordinate: xCoordinate, 
             y_coordinate: yCoordinate,
             z_coordinate: zCoordinate,
             description: description,
             explored_status: exploredStatus,
-            world_id: id
         }})
-        setTrigger(false);
     }
+
+    useEffect(() => {
+        // Get details for location on page load
+        dispatch({ type: 'GET_DETAILS', payload: id });
+    }, []);
 
     return (
         <div>
