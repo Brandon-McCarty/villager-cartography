@@ -2,7 +2,7 @@ import {useDispatch} from 'react-redux'
 import {useState} from 'react';
 import { useParams } from 'react-router-dom'
 
-function LocationForm() {
+function LocationForm({setTrigger}) {
 
     const dispatch = useDispatch();
     const id = useParams().id;
@@ -27,6 +27,7 @@ function LocationForm() {
             explored_status: exploredStatus,
             world_id: id
         }})
+        setTrigger(false);
     }
 
     return (
