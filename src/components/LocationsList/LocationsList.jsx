@@ -18,7 +18,7 @@ function LocationsList() {
     useEffect(() => {
         // Get locations of world based on world id -- maybe change to join code for more security
         dispatch({ type: 'GET_LOCATIONS', payload: id });
-    }, []);
+    }, [id]);
 
     const addNewLocation = () => {
         console.log('ADDING LOCATION');

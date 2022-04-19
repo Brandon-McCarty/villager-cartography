@@ -9,7 +9,6 @@ function LocationsItem({location}) {
 
     const viewLocationDetails = () => {
         console.log(`Viewing ${location.location_name}, ${location.id}`);
-        setLocationDetailsTrigger(true);
         dispatch({type: 'GET_DETAILS', payload: location.id})
         history.push(`/details/${location.id}`)
     }

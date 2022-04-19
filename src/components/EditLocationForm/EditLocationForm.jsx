@@ -17,7 +17,7 @@ function EditLocationForm() {
 
     const addLocation = (event) => {
         event.preventDefault();
-        console.log(id);
+        console.log(exploredStatus);
         dispatch({type: 'ADD_LOCATION', payload: {
             id: id,
             location_name: newLocationName, 

@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import WorldList from '../WorldList/WorldList';
 import LocationsList from '../LocationsList/LocationsList';
+import LocationDetails from '../LocationDetails/LocationDetails';
 import EditLocationForm from '../EditLocationForm/EditLocationForm';
 
 import './App.css';
@@ -125,12 +126,20 @@ function App() {
             path="/locations/:id"
           >
             <LocationsList />
-            
+
           </ProtectedRoute>
 
           <ProtectedRoute
             exact
             path="/details/:id"
+          >
+            <LocationDetails />
+
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/edit/:id"
           >
             <EditLocationForm />
 
