@@ -2,7 +2,7 @@ import {useDispatch} from 'react-redux'
 import {useState} from 'react';
 import { useParams } from 'react-router-dom'
 
-function LocationForm({setTrigger}) {
+function EditLocationForm({setTrigger}) {
 
     const dispatch = useDispatch();
     const id = useParams().id;
@@ -77,10 +77,11 @@ function LocationForm({setTrigger}) {
                     onChange={(event) => setDescription(event.target.value)}
                 />
                 <br />
-                <button type="submit">Add Location</button>
+                <button type="submit">Update Location</button>
+                <button>Delete</button>
             </form>
         </div>
     )
 }
 
-export default LocationForm;
+export default EditLocationForm;

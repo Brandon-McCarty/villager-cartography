@@ -3,9 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
-/**
- * GET route template
- */
+
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     // GET for locations of chosen world
     console.log('ID IS', req.params.id);
@@ -22,9 +20,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
         })
 });
 
-/**
- * POST route template
- */
+
 router.post('/', rejectUnauthenticated, (req, res) => {
     const location = req.body
     // POST new location
@@ -48,8 +44,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         .then(result => {
             res.sendStatus(201);
         }).catch (err => {
-            console.log('Error in adding location', err);
-            
+            console.log('Error in adding location', err);         
         })
 });
 
