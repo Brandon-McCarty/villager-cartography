@@ -4,6 +4,7 @@ import user from './user.reducer';
 import worldsReducer from './worlds.reducer';
 import locationsReducer from './locations.reducer';
 import details from './details.reducer';
+import editLocation from './edit.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   worldsReducer,
   locationsReducer,
-  details
+  details,
+  editLocation
 });
 
 export default rootReducer;

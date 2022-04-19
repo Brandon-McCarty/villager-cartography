@@ -1,13 +1,26 @@
 import {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
+
 
 
 function LocationDetails() {
 
     const details = useSelector(store => store.details);
+    const history = useHistory();
     const dispatch = useDispatch();
     const id = useParams().id;
+
+    const deleteLocation = () => {
+        console.log('DELETE');
+        dispatch({type: 'DELETE_LOCATION', payload: id})
+    }
+
+    
+    const editLocation = () => {
+        console.log('EDIT');
+        history.push(`/edit/${id}`)
+    }
 
 
     useEffect(() => {
@@ -24,6 +37,9 @@ function LocationDetails() {
         <h3>Comments:</h3>
         <p>{details.description}</p>
         <h3>{details.explored_status ? 'Explored' : 'Unexplored'}</h3>
+
+        <button onClick={editLocation}>Edit</button>
+        <button onClick={deleteLocation}>Delete</button>
     </div>
   )
 }

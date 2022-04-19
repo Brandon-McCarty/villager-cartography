@@ -1,74 +1,67 @@
-import {useDispatch} from 'react-redux'
-import {useState, useEffect} from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 
 function EditLocationForm() {
 
     const dispatch = useDispatch();
     const id = useParams().id;
+    const editLocation = useSelector(store => store.editLocation);
 
-    // grab user input
-    const [newLocationName, setNewLocationName] = useState('');
-    const [xCoordinate, setXCoordinate] = useState('');
-    const [yCoordinate, setYCoordinate] = useState('');
-    const [zCoordinate, setZCoordinate] = useState('');
-    const [exploredStatus, setExploredStatus] = useState(false);
-    const [description, setDescription] = useState('');
 
-    const addLocation = (event) => {
+    const handleChange = (event, property) => {
+        console.log('EDITING');
+        dispatch({
+            type: 'EDIT_ONCHANGE',
+            payload: {property: property, value: event.target.value}
+        })
+    }
+
+    const updateLocation = (event) => {
         event.preventDefault();
-        console.log(exploredStatus);
-        dispatch({type: 'ADD_LOCATION', payload: {
-            id: id,
-            location_name: newLocationName, 
-            x_coordinate: xCoordinate, 
-            y_coordinate: yCoordinate,
-            z_coordinate: zCoordinate,
-            description: description,
-            explored_status: exploredStatus,
-        }})
+        
     }
 
     useEffect(() => {
-        // Get details for location on page load
-        dispatch({ type: 'GET_DETAILS', payload: id });
-    }, []);
+        // Get locations of world based on world id -- maybe change to join code for more security
+        dispatch({ type: 'GET_EDIT_LOCATION', payload: id });
+    }, [id]);
 
     return (
         <div>
-            <form action="submit" onSubmit={addLocation}>
+            <form action="submit" onSubmit={updateLocation}>
                 <input
                     type="text"
                     placeholder="Location Name"
-                    value={newLocationName}
-                    onChange={(event) => setNewLocationName(event.target.value)}
+                    value={editLocation.location_name}
+                    onChange={(event) => handleChange(event, 'location_name')}
                 />
                 <input
                     type="number"
                     placeholder="X Coordinate"
-                    value={xCoordinate}
-                    onChange={(event) => setXCoordinate(event.target.value)}
+                    value={editLocation.x_coordinate}
+                    onChange={(event) => handleChange(event, 'x_coordinate')}
                 />
                 <input
                     type="number"
                     placeholder="Y Coordinate"
-                    value={yCoordinate}
-                    onChange={(event) => setYCoordinate(event.target.value)}
+                    value={editLocation.y_coordinate}
+                    onChange={(event) => handleChange(event, 'y_coordinate')}
                 />
                 <input
                     type="number"
                     placeholder="Z Coordinate"
-                    value={zCoordinate}
-                    onChange={(event) => setZCoordinate(event.target.value)}
+                    value={editLocation.z_coordinate}
+                    onChange={(event) => handleChange(event, 'z_coordinate')}
                 />
                 <br />
-                
-                <input 
+
+                <input
                     type="checkbox"
                     id="explore"
                     name="explore"
-                    checked={exploredStatus}
-                    onChange={(event) => setExploredStatus(event.target.checked)}
+                    checked={editLocation.explored_status}
+                    onChange={(event) => handleChange(event.target.checked, 'explored_status')}
                 />
                 <label htmlFor="explore">Mark as Explored</label>
                 <br />
@@ -77,8 +70,8 @@ function EditLocationForm() {
                     cols="30"
                     type="text"
                     placeholder="Description"
-                    value={description}
-                    onChange={(event) => setDescription(event.target.value)}
+                    value={editLocation.description}
+                    onChange={(event) => handleChange(event, 'description')}
                 />
                 <br />
                 <button type="submit">Update Location</button>
