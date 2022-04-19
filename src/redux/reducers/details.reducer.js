@@ -8,6 +8,3 @@ const detailsReducer = (state = [], action) => {
   };
 
   export default detailsReducer;
-
-
-

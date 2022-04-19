@@ -10,12 +10,22 @@ function EditLocationForm() {
 
 
     const handleChange = (event, property) => {
-        console.log('EDITING');
         dispatch({
             type: 'EDIT_ONCHANGE',
             payload: {property: property, value: event.target.value}
         })
     }
+
+    const handleExplored = (event) => {
+
+        let exploredStatus = event.target.checked
+        console.log(exploredStatus);
+        dispatch({
+            type: 'EDIT_ONCHANGE_EXPLORED',
+            payload: {property: 'explored_status', value: exploredStatus}
+        })
+    }
+
 
     const updateLocation = (event) => {
         event.preventDefault();
@@ -60,11 +70,13 @@ function EditLocationForm() {
                     type="checkbox"
                     id="explore"
                     name="explore"
-                    checked={editLocation.explored_status}
-                    onChange={(event) => handleChange(event.target.checked, 'explored_status')}
+                    defaultChecked={editLocation.explored_status}
+                    onChange={handleExplored}
                 />
                 <label htmlFor="explore">Mark as Explored</label>
+
                 <br />
+
                 <textarea
                     rows="5"
                     cols="30"
