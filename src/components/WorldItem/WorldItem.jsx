@@ -13,10 +13,15 @@ function WorldItem({ world }) {
         history.push(`/locations/${world.id}`)
     }
 
+    const deleteWorld = () => {
+        console.log('DELETING WORLD', world.world_name);
+        dispatch({type: 'DELETE_WORLD', payload: world.id})
+    }
+
     return (
-        <div onClick={getLocations}>
-            <li>{world.world_name}</li>
-            <button>DELETE</button>
+        <div >
+            <li onClick={getLocations}>{world.world_name}</li>
+            <button onClick={deleteWorld}>DELETE</button>
         </div>
     )
 }
