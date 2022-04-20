@@ -4,17 +4,29 @@ const router = express.Router();
 
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-router.get('/:id', rejectUnauthenticated, (req, res) => {
-    // GET for locations of chosen world
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+    const edit = req.body
     console.log('ID IS', req.params.id);
     const query = `
-                SELECT * FROM "locations"
-                WHERE id = $1;
+                UPDATE "locations"
+                SET "location_name" = $1, "x_coordinate" = $2, "y_coordinate" = $3,
+                "z_coordinate" = $4, "description" = $5, "explored_status" = $6
+                WHERE id = $7;
                 `;
 
-    pool.query(query, [req.params.id])
+    const values = [
+        edit.location_name,
+        edit.x_coordinate,
+        edit.y_coordinate,
+        edit.z_coordinate,
+        edit.description,
+        edit.explored_status,
+        edit.id
+    ]
+
+    pool.query(query, values)
         .then(result => {
-            res.send(result.rows);
+            res.sendStatus(200);
         }).catch(err => {
             console.log('Error in getting locations', err);
         })

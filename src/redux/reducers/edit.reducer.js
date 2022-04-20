@@ -1,5 +1,7 @@
 const editLocation = (state  = {}, action) => {
-    if(action.type == 'SET_EDIT_LOCATION') {
+    if(action.type == 'CLEAR_EDIT') {
+        return {};
+    } else if(action.type == 'SET_EDIT_LOCATION') {
         return action.payload;
     } else if (action.type == 'EDIT_ONCHANGE_EXPLORED') {
         return {

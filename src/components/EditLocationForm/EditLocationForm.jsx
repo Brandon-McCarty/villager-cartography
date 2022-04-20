@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 
 function EditLocationForm() {
 
     const dispatch = useDispatch();
     const id = useParams().id;
+    const history = useHistory();
     const editLocation = useSelector(store => store.editLocation);
 
 
@@ -29,7 +30,9 @@ function EditLocationForm() {
 
     const updateLocation = (event) => {
         event.preventDefault();
-        
+        dispatch({type: 'UPDATE_LOCATION', payload: editLocation})
+        dispatch({type: 'CLEAR_EDIT'})
+        history.push(`/details/${id}`)
     }
 
     useEffect(() => {

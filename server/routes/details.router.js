@@ -6,7 +6,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     // GET for locations of chosen world
-    console.log('ID IS', req.params.id);
     const query = `
                 SELECT * FROM "locations"
                 WHERE id = $1;
