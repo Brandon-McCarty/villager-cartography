@@ -149,7 +149,7 @@ function App() {
 
           <ProtectedRoute
             exact
-            path="/profile/:id"
+            path="/profile"
           >
             <Profile />
 
