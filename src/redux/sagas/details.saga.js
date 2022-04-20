@@ -10,8 +10,18 @@ function* getLocationDetails (action) {
     }
 }
 
+function* deleteLocation (action) {
+    try {
+        yield axios.delete(`/details/${action.payload.id}`)
+        yield axios.get(`/locations/${action.payload.world_id}`)
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 function* detailsSaga () {
     yield takeEvery('GET_DETAILS', getLocationDetails)
+    yield takeEvery('DELETE_LOCATION', deleteLocation)
 }
 
 export default detailsSaga;

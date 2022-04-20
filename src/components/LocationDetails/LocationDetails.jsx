@@ -12,8 +12,9 @@ function LocationDetails() {
     const id = useParams().id;
 
     const deleteLocation = () => {
-        console.log('DELETE');
-        dispatch({type: 'DELETE_LOCATION', payload: id})
+        console.log('DELETE', details.location_name);
+        dispatch({type: 'DELETE_LOCATION', payload: {id: details.id, world_id: details.world_id}})
+        history.push(`/locations/${details.world_id}`)
     }
 
     
