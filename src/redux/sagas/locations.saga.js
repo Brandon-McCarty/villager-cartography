@@ -22,20 +22,13 @@ function* addNewLocation (action) {
     }
 }
 
-function* deleteLocation (action) {
-    try {
-        yield axios.delete(`/locations/${action.payload.id}`)
-        yield axios.get(`/locations/${action.payload.world_id}`)
-    } catch (err) {
-        console.log(err);
-    }
-}
+
 
 // All sagas for /locations route
 function* locationsSaga () {
     yield takeEvery('GET_LOCATIONS', getLocations);
     yield takeEvery('ADD_LOCATION', addNewLocation);
-    yield takeEvery('DELETE_LOCATION', deleteLocation)
+    
 }
 
 export default locationsSaga;

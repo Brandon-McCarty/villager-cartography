@@ -6,7 +6,6 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 
 router.put('/:id', rejectUnauthenticated, (req, res) => {
     const edit = req.body
-    console.log('ID IS', req.params.id);
     const query = `
                 UPDATE "locations"
                 SET "location_name" = $1, "x_coordinate" = $2, "y_coordinate" = $3,

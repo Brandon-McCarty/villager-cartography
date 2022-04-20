@@ -4,9 +4,10 @@ const router = express.Router();
 
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
+
+
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     // GET for locations of chosen world
-    console.log('ID IS', req.params.id);
     const query = `
                 SELECT * FROM "locations"
                 WHERE world_id = $1;
@@ -29,11 +30,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                 "world_id")
                 VALUES ($1, $2, $3, $4, $5, $6, $7);
                 `;
-                
+
     const values = [
-        location.location_name, 
-        location.x_coordinate, 
-        location.y_coordinate, 
+        location.location_name,
+        location.x_coordinate,
+        location.y_coordinate,
         location.z_coordinate,
         location.description,
         location.explored_status,
@@ -43,9 +44,10 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     pool.query(query, values)
         .then(result => {
             res.sendStatus(201);
-        }).catch (err => {
-            console.log('Error in adding location', err);         
+        }).catch(err => {
+            console.log('Error in adding location', err);
         })
 });
+
 
 module.exports = router;
