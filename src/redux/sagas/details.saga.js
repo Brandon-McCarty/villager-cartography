@@ -10,6 +10,8 @@ function* getLocationDetails (action) {
     }
 }
 
+
+
 function* detailsSaga () {
     yield takeEvery('GET_DETAILS', getLocationDetails)
 }
