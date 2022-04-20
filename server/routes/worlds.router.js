@@ -41,9 +41,9 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     // Delete specified world
     const query = `
                 DELETE FROM "worlds"
-                WHERE id = $1;
+                WHERE id = $1 AND user_id = $2;
                 `;
-    pool.query(query, [req.params.id])
+    pool.query(query, [req.params.id, req.user.id])
         .then(result => {
             res.sendStatus(204);
         }).catch(err => {
