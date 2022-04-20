@@ -1,80 +1,92 @@
-import {useDispatch} from 'react-redux'
-import {useState} from 'react';
-import { useParams } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react';
+import { useParams, useHistory } from 'react-router-dom'
 
-function EditLocationForm({setTrigger}) {
+function EditLocationForm() {
 
     const dispatch = useDispatch();
     const id = useParams().id;
+    const history = useHistory();
+    const editLocation = useSelector(store => store.editLocation);
 
-    // grab user input
-    const [newLocationName, setNewLocationName] = useState('');
-    const [xCoordinate, setXCoordinate] = useState('');
-    const [yCoordinate, setYCoordinate] = useState('');
-    const [zCoordinate, setZCoordinate] = useState('');
-    const [exploredStatus, setExploredStatus] = useState(false);
-    const [description, setDescription] = useState('');
 
-    const addLocation = (event) => {
-        event.preventDefault();
-        console.log(id);
-        dispatch({type: 'ADD_LOCATION', payload: {
-            location_name: newLocationName, 
-            x_coordinate: xCoordinate, 
-            y_coordinate: yCoordinate,
-            z_coordinate: zCoordinate,
-            description: description,
-            explored_status: exploredStatus,
-            world_id: id
-        }})
-        setTrigger(false);
+    const handleChange = (event, property) => {
+        dispatch({
+            type: 'EDIT_ONCHANGE',
+            payload: {property: property, value: event.target.value}
+        })
     }
+
+    const handleExplored = (event) => {
+
+        let exploredStatus = event.target.checked
+        console.log(exploredStatus);
+        dispatch({
+            type: 'EDIT_ONCHANGE_EXPLORED',
+            payload: {property: 'explored_status', value: exploredStatus}
+        })
+    }
+
+
+    const updateLocation = (event) => {
+        event.preventDefault();
+        dispatch({type: 'UPDATE_LOCATION', payload: editLocation})
+        dispatch({type: 'CLEAR_EDIT'})
+        history.push(`/details/${id}`)
+    }
+
+    useEffect(() => {
+        // Get locations of world based on world id -- maybe change to join code for more security
+        dispatch({ type: 'GET_EDIT_LOCATION', payload: id });
+    }, [id]);
 
     return (
         <div>
-            <form action="submit" onSubmit={addLocation}>
+            <form action="submit" onSubmit={updateLocation}>
                 <input
                     type="text"
                     placeholder="Location Name"
-                    value={newLocationName}
-                    onChange={(event) => setNewLocationName(event.target.value)}
+                    value={editLocation.location_name}
+                    onChange={(event) => handleChange(event, 'location_name')}
                 />
                 <input
                     type="number"
                     placeholder="X Coordinate"
-                    value={xCoordinate}
-                    onChange={(event) => setXCoordinate(event.target.value)}
+                    value={editLocation.x_coordinate}
+                    onChange={(event) => handleChange(event, 'x_coordinate')}
                 />
                 <input
                     type="number"
                     placeholder="Y Coordinate"
-                    value={yCoordinate}
-                    onChange={(event) => setYCoordinate(event.target.value)}
+                    value={editLocation.y_coordinate}
+                    onChange={(event) => handleChange(event, 'y_coordinate')}
                 />
                 <input
                     type="number"
                     placeholder="Z Coordinate"
-                    value={zCoordinate}
-                    onChange={(event) => setZCoordinate(event.target.value)}
+                    value={editLocation.z_coordinate}
+                    onChange={(event) => handleChange(event, 'z_coordinate')}
                 />
                 <br />
-                
-                <input 
+
+                <input
                     type="checkbox"
                     id="explore"
                     name="explore"
-                    checked={exploredStatus}
-                    onChange={(event) => setExploredStatus(event.target.checked)}
+                    defaultChecked={editLocation.explored_status}
+                    onChange={handleExplored}
                 />
                 <label htmlFor="explore">Mark as Explored</label>
+
                 <br />
+
                 <textarea
                     rows="5"
                     cols="30"
                     type="text"
                     placeholder="Description"
-                    value={description}
-                    onChange={(event) => setDescription(event.target.value)}
+                    value={editLocation.description}
+                    onChange={(event) => handleChange(event, 'description')}
                 />
                 <br />
                 <button type="submit">Update Location</button>
