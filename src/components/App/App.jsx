@@ -23,6 +23,7 @@ import WorldList from '../WorldList/WorldList';
 import LocationsList from '../LocationsList/LocationsList';
 import LocationDetails from '../LocationDetails/LocationDetails';
 import EditLocationForm from '../EditLocationForm/EditLocationForm';
+import Profile from '../Profile/Profile';
 
 import './App.css';
 
@@ -142,6 +143,14 @@ function App() {
             path="/edit/:id"
           >
             <EditLocationForm />
+
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/profile/:id"
+          >
+            <Profile />
 
           </ProtectedRoute>
 
