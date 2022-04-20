@@ -24,6 +24,7 @@ import LocationsList from '../LocationsList/LocationsList';
 import LocationDetails from '../LocationDetails/LocationDetails';
 import EditLocationForm from '../EditLocationForm/EditLocationForm';
 import Profile from '../Profile/Profile';
+import BottomNav from '../BottomNav/BottomNav';
 
 import './App.css';
 
@@ -161,7 +162,9 @@ function App() {
 
 
         </Switch>
-        <Footer />
+        <BottomNav />
+        {/* <Footer /> */}
+        
       </div>
     </Router>
   );
