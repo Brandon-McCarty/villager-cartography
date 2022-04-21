@@ -3,6 +3,9 @@ import { useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom'
 import Header from '../Header/Header';
 
+// Material UI
+import {Grid, Paper} from '@material-ui/core' 
+
 function EditLocationForm() {
 
     const dispatch = useDispatch();

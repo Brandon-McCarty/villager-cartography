@@ -51,26 +51,31 @@ function BottomNav() {
             {user.id &&
                 <BottomNavigation
                     className={classes.root}
+                    showLabel
                     value={value}
                     onChange={handleChange}
                 >
+                    
                     <BottomNavigationAction
                         label='Back'
                         icon={<ArrowBackIcon />}
                         onClick={goBack}
                     />
 
-                    <Link to='/profile'>
-                        <BottomNavigationAction
-                            label='Profile'
-                            icon={<AccountBoxIcon />} />
-                    </Link>
+                    <BottomNavigationAction
+                        component={Link}
+                        to='/profile'
+                        label='Profile'
+                        icon={<AccountBoxIcon />}
+                    />
 
-                    <Link to='/worlds'>
-                        <BottomNavigationAction
-                            label='Worlds'
-                            icon={<PublicIcon />} />
-                    </Link>
+                    <BottomNavigationAction
+                        component={Link}
+                        to='/worlds'
+                        label='Worlds'
+                        icon={<PublicIcon />}
+                    />
+
 
                     <BottomNavigationAction
                         label='Logout'
