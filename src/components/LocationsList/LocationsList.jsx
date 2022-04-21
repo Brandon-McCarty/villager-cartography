@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 
 import LocationsItem from '../LocationsItem/LocationsItem';
 import LocationFormPopup from '../LocationFormPopup/LocationFormPopup';
+import Header from '../Header/Header';
 
 function LocationsList() {
 
@@ -27,6 +28,9 @@ function LocationsList() {
 
     return (
         <div>
+            <Header 
+                pageTitle='Locations'
+            />
             <button onClick={addNewLocation}>Add Location</button>
             <LocationFormPopup
                 trigger={locationFormTrigger}

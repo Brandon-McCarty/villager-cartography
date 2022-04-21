@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react';
 import { useParams, useHistory } from 'react-router-dom'
+import Header from '../Header/Header';
 
 function EditLocationForm() {
 
@@ -42,6 +43,9 @@ function EditLocationForm() {
 
     return (
         <div>
+            <Header 
+                pageTitle={`Edit ${editLocation.location_name}`}
+            />
             <form action="submit" onSubmit={updateLocation}>
                 <input
                     type="text"

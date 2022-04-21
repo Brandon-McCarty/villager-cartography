@@ -1,0 +1,11 @@
+.header {
+    align-items: center;
+    text-align: center;
+    margin: 0 0 30px;
+    background-color: #4A6F28;
+    overflow: hidden;
+}
+
+.title {
+    text-align: center;
+}

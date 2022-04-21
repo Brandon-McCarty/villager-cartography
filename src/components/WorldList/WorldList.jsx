@@ -1,8 +1,9 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import WorldItem from '../WorldItem/WorldItem';
 import Popup from '../WorldFormPopup/WorldFormPopup';
+import Header from '../Header/Header';
 
 function WorldList() {
 
@@ -23,12 +24,15 @@ function WorldList() {
 
     return (
         <>
+            <Header
+                pageTitle='Worlds'
+            />
             <button onClick={addNewWorld}>ADD WORLD</button>
             <Popup
                 trigger={worldFormTrigger}
                 setTrigger={setWorldFormTrigger}
             />
-            <ul>
+            <div>
                 {worlds.map(world => {
                     return (
                         <WorldItem
@@ -36,7 +40,7 @@ function WorldList() {
                             world={world}
                         />)
                 })}
-            </ul>
+            </div>
         </>
     )
 }

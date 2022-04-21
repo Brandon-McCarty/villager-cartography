@@ -19,9 +19,9 @@ function WorldItem({ world }) {
     }
 
     return (
-        <div >
-            <li onClick={getLocations}>{world.world_name}</li>
-            <button onClick={deleteWorld}>DELETE</button>
+        <div>
+            <p onClick={getLocations}>{world.world_name}<span>  </span><button onClick={deleteWorld}>DELETE</button></p>
+            
         </div>
     )
 }

@@ -1,5 +1,8 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {useEffect} from 'react';
+import Header from '../Header/Header';
+
+
 function Profile() {
 
     const dispatch = useDispatch();
@@ -14,6 +17,9 @@ function Profile() {
 
   return (
     <div>
+        <Header 
+          pageTitle={`${user.username}'s Profile`}
+        />
         <h1>{user.username}</h1>
 
         <ul>

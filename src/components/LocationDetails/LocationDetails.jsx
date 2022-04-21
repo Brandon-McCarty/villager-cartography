@@ -2,6 +2,7 @@ import {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 
+import Header from '../Header/Header';
 
 
 function LocationDetails() {
@@ -32,7 +33,9 @@ function LocationDetails() {
     console.log(details);
   return (
     <div>
-        <h2>{details.location_name}</h2>
+        <Header 
+          pageTitle={`${details.location_name} Details`}
+        />
         <h3>Coordinates: </h3>
         <p>{details.x_coordinate}, {details.y_coordinate}, {details.z_coordinate}</p>
         <h3>Comments:</h3>
