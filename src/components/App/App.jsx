@@ -23,7 +23,6 @@ import LocationDetails from '../LocationDetails/LocationDetails';
 import EditLocationForm from '../EditLocationForm/EditLocationForm';
 import Profile from '../Profile/Profile';
 import BottomNav from '../BottomNav/BottomNav';
-import Header from '../Header/Header';
 
 import './App.css';
 

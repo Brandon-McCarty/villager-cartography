@@ -2,6 +2,9 @@ import {useEffect} from 'react'
 import {useSelector, useDispatch} from 'react-redux'
 import { useParams, useHistory } from 'react-router-dom'
 
+// Material UI
+import { Paper, Box } from '@material-ui/core'
+
 import Header from '../Header/Header';
 
 
@@ -36,6 +39,15 @@ function LocationDetails() {
         <Header 
           pageTitle={`${details.location_name} Details`}
         />
+        <Box p={2}>
+          <Paper
+          align='center'
+          style={{
+            backgroundColor: "#C28340",
+            border: "1px solid black",
+            alignItems: 'center'
+        }}
+          >
         <h3>Coordinates: </h3>
         <p>{details.x_coordinate}, {details.y_coordinate}, {details.z_coordinate}</p>
         <h3>Comments:</h3>
@@ -44,6 +56,8 @@ function LocationDetails() {
 
         <button onClick={editLocation}>Edit</button>
         <button onClick={deleteLocation}>Delete</button>
+        </Paper>
+        </Box>
     </div>
   )
 }

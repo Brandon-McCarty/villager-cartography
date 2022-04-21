@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import Header from '../Header/Header';
 
 // Material UI
-import {Grid, Paper} from '@material-ui/core' 
+import { Paper, Box, TextField } from '@material-ui/core'
 
 function EditLocationForm() {
 
@@ -17,7 +17,7 @@ function EditLocationForm() {
     const handleChange = (event, property) => {
         dispatch({
             type: 'EDIT_ONCHANGE',
-            payload: {property: property, value: event.target.value}
+            payload: { property: property, value: event.target.value }
         })
     }
 
@@ -27,15 +27,15 @@ function EditLocationForm() {
         console.log(exploredStatus);
         dispatch({
             type: 'EDIT_ONCHANGE_EXPLORED',
-            payload: {property: 'explored_status', value: exploredStatus}
+            payload: { property: 'explored_status', value: exploredStatus }
         })
     }
 
 
     const updateLocation = (event) => {
         event.preventDefault();
-        dispatch({type: 'UPDATE_LOCATION', payload: editLocation})
-        dispatch({type: 'CLEAR_EDIT'})
+        dispatch({ type: 'UPDATE_LOCATION', payload: editLocation })
+        dispatch({ type: 'CLEAR_EDIT' })
         history.push(`/details/${id}`)
     }
 
@@ -46,59 +46,91 @@ function EditLocationForm() {
 
     return (
         <div>
-            <Header 
+            <Header
                 pageTitle={`Edit ${editLocation.location_name}`}
             />
-            <form action="submit" onSubmit={updateLocation}>
-                <input
-                    type="text"
-                    placeholder="Location Name"
-                    value={editLocation.location_name}
-                    onChange={(event) => handleChange(event, 'location_name')}
-                />
-                <input
-                    type="number"
-                    placeholder="X Coordinate"
-                    value={editLocation.x_coordinate}
-                    onChange={(event) => handleChange(event, 'x_coordinate')}
-                />
-                <input
-                    type="number"
-                    placeholder="Y Coordinate"
-                    value={editLocation.y_coordinate}
-                    onChange={(event) => handleChange(event, 'y_coordinate')}
-                />
-                <input
-                    type="number"
-                    placeholder="Z Coordinate"
-                    value={editLocation.z_coordinate}
-                    onChange={(event) => handleChange(event, 'z_coordinate')}
-                />
-                <br />
+            <Box p={1} height={300}>
+                <Paper
+                    style={{
+                        backgroundColor: "#C28340",
+                        border: "1px solid black",
+                        minHeight: '50vh',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
+                        spacing: 50
+                    }}
+                    align='center'
+                >
+                    <form action="submit" onSubmit={updateLocation}>
+                        <TextField
+                            type="text"
+                            id='outlined-basic'
+                            label='Location Name'
+                            placeholder="Location Name"
+                            value={editLocation.location_name}
+                            onChange={(event) => handleChange(event, 'location_name')}
+                        />
 
-                <input
-                    type="checkbox"
-                    id="explore"
-                    name="explore"
-                    defaultChecked={editLocation.explored_status}
-                    onChange={handleExplored}
-                />
-                <label htmlFor="explore">Mark as Explored</label>
+                        <br />
 
-                <br />
+                        <TextField
+                        id='outlined-basic'
+                        label='X Coordinate'
+                            type="number"
+                            placeholder="X Coordinate"
+                            value={editLocation.x_coordinate}
+                            onChange={(event) => handleChange(event, 'x_coordinate')}
+                        />
 
-                <textarea
-                    rows="5"
-                    cols="30"
-                    type="text"
-                    placeholder="Description"
-                    value={editLocation.description}
-                    onChange={(event) => handleChange(event, 'description')}
-                />
-                <br />
-                <button type="submit">Update Location</button>
-                <button>Delete</button>
-            </form>
+                        <br />
+
+                        <TextField
+                        id='outlined-basic'
+                        label='Y Coordinate'
+                            type="number"
+                            placeholder="Y Coordinate"
+                            value={editLocation.y_coordinate}
+                            onChange={(event) => handleChange(event, 'y_coordinate')}
+                        />
+
+                        <br />
+
+                        <TextField
+                        id='outlined-basic'
+                        label='Z Coordinate'
+                            type="number"
+                            placeholder="Z Coordinate"
+                            value={editLocation.z_coordinate}
+                            onChange={(event) => handleChange(event, 'z_coordinate')}
+                        />
+                        <br />
+
+                        <input
+                            type="checkbox"
+                            id="explore"
+                            name="explore"
+                            defaultChecked={editLocation.explored_status}
+                            onChange={handleExplored}
+                        />
+                        <label htmlFor="explore">Mark as Explored</label>
+
+                        <br />
+
+                        <textarea
+                            rows="5"
+                            cols="30"
+                            type="text"
+                            placeholder="Description"
+                            value={editLocation.description}
+                            onChange={(event) => handleChange(event, 'description')}
+                        />
+                        <br />
+                        <button type="submit">Update Location</button>
+                        <button>Delete</button>
+                    </form>
+                </Paper>
+            </Box>
         </div>
     )
 }
