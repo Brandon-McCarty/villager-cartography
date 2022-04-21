@@ -1,6 +1,9 @@
 import {useDispatch} from 'react-redux'
 import {useState} from 'react';
 
+// Material UI
+import {TextField, Button } from '@material-ui/core';
+
 function WorldForm({setTrigger}) {
 
     const dispatch = useDispatch();
@@ -22,10 +25,9 @@ function WorldForm({setTrigger}) {
 
         <h2>Add a New World</h2>
         <form action="submit">
-            <label htmlFor="name-input">World Name:</label>
-            <input
-            id="name-input"
-            placeholder="Enter World Name" 
+            <TextField
+            id='outlined-basic'
+            label='Enter World Name'
             type="text"
             value={newWorld}
             onChange={(event) => setNewWorld(event.target.value)}
@@ -33,7 +35,12 @@ function WorldForm({setTrigger}) {
 
             <p>This name cannot be changed!</p>
 
-            <button onClick={addNewWorld}>Add World</button>
+            <Button 
+            style={{
+              backgroundColor: "#4A6F28",   
+          }}
+            onClick={addNewWorld}
+            >Add World</Button>
         </form>
     </>
   )

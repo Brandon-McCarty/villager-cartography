@@ -5,6 +5,10 @@ import WorldItem from '../WorldItem/WorldItem';
 import Popup from '../WorldFormPopup/WorldFormPopup';
 import Header from '../Header/Header';
 
+// Material UI
+import { Button, Box } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+
 function WorldList() {
 
     const dispatch = useDispatch();
@@ -27,7 +31,23 @@ function WorldList() {
             <Header
                 pageTitle='Worlds'
             />
-            <button onClick={addNewWorld}>ADD WORLD</button>
+            <Box
+                pr={1}
+                pb={1}
+                style={{
+                    display: 'flex',
+                    justifyContent: 'end',
+                }}
+
+            >
+                <Button
+                    style={{
+                        backgroundColor: "#4A6F28",
+
+                    }}
+                    label='Add World'
+                    onClick={addNewWorld}><AddIcon /></Button>
+            </Box>
             <Popup
                 trigger={worldFormTrigger}
                 setTrigger={setWorldFormTrigger}
