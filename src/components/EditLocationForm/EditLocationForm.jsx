@@ -67,41 +67,37 @@ function EditLocationForm() {
                             type="text"
                             id='outlined-basic'
                             label='Location Name'
-                            placeholder="Location Name"
-                            value={editLocation.location_name}
+                            value={editLocation.location_name || ''}
                             onChange={(event) => handleChange(event, 'location_name')}
                         />
 
                         <br />
 
                         <TextField
-                        id='outlined-basic'
-                        label='X Coordinate'
+                            id='outlined-basic'
+                            label='X Coordinate'
                             type="number"
-                            placeholder="X Coordinate"
-                            value={editLocation.x_coordinate}
+                            value={editLocation.x_coordinate || ''}
                             onChange={(event) => handleChange(event, 'x_coordinate')}
                         />
 
                         <br />
 
                         <TextField
-                        id='outlined-basic'
-                        label='Y Coordinate'
+                            id='outlined-basic'
+                            label='Y Coordinate'
                             type="number"
-                            placeholder="Y Coordinate"
-                            value={editLocation.y_coordinate}
+                            value={editLocation.y_coordinate || ''}
                             onChange={(event) => handleChange(event, 'y_coordinate')}
                         />
 
                         <br />
 
                         <TextField
-                        id='outlined-basic'
-                        label='Z Coordinate'
+                            id='outlined-basic'
+                            label='Z Coordinate'
                             type="number"
-                            placeholder="Z Coordinate"
-                            value={editLocation.z_coordinate}
+                            value={editLocation.z_coordinate || ''}
                             onChange={(event) => handleChange(event, 'z_coordinate')}
                         />
                         <br />
@@ -110,19 +106,19 @@ function EditLocationForm() {
                             type="checkbox"
                             id="explore"
                             name="explore"
-                            defaultChecked={editLocation.explored_status}
+                            defaultChecked={editLocation.explored_status || ''}
                             onChange={handleExplored}
                         />
                         <label htmlFor="explore">Mark as Explored</label>
 
                         <br />
 
-                        <textarea
-                            rows="5"
-                            cols="30"
-                            type="text"
-                            placeholder="Description"
-                            value={editLocation.description}
+                        <TextField
+                            id="outlined-textarea"
+                            label="Description"
+                            multiline
+                            variant="outlined"
+                            value={editLocation.description || ''}
                             onChange={(event) => handleChange(event, 'description')}
                         />
                         <br />
