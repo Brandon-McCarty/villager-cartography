@@ -13,7 +13,10 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 const useStyles = makeStyles({
     root: {
-        backgroundColor: "#C28340"
+        width: '100%',
+        backgroundColor: "#C28340",
+        position: 'fixed',
+        bottom: 0
     }
 })
 
@@ -27,6 +30,10 @@ function BottomNav() {
 
     const goBack = () => {
         history.goBack()
+    }
+
+    const handleChange = (event, newValue) => {
+        setValue(newValue);
     }
 
     return (
@@ -45,7 +52,7 @@ function BottomNav() {
                 <BottomNavigation
                     className={classes.root}
                     value={value}
-                    onChange={(event, newValue) => setValue(newValue)}
+                    onChange={handleChange}
                 >
                     <BottomNavigationAction
                         label='Back'
@@ -70,7 +77,7 @@ function BottomNav() {
                         icon={<ExitToAppIcon />}
                         onClick={() => dispatch({ type: 'LOGOUT' })}
                     />
-                    
+
                 </BottomNavigation>}
         </div>
     )
