@@ -19,7 +19,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         .catch(err => {
             console.log('Error in getting worlds', err);
         })
-}); // END GET for /worlds
+}); // END GET 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
     // Add new world from user input
@@ -35,7 +35,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         }).catch(err => {
             console.log('Error in creating new world', err);
         })
-});
+}); // END POST 
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     // Delete specified world
@@ -49,6 +49,6 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
         }).catch(err => {
             console.log('Error in creating new world', err);
         })
-})
+}); // END DELETE
 
 module.exports = router;

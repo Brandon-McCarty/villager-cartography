@@ -17,6 +17,7 @@ function WorldItem({ world }) {
     const history = useHistory();
     const dispatch = useDispatch();
 
+    // Get all locations associated with chosen world
     const getLocations = () => {
         console.log(world.id)
         dispatch({ type: 'GET_LOCATIONS', payload: world.id })
@@ -50,9 +51,6 @@ function WorldItem({ world }) {
                 })   
             }
         })
-
-
-
     }
 
     return (

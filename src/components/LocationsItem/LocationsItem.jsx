@@ -13,6 +13,7 @@ function LocationsItem({ location }) {
     const dispatch = useDispatch();
 
     const viewLocationDetails = () => {
+        // Select location and send to details view
         console.log(`Viewing ${location.location_name}, ${location.id}`);
         dispatch({ type: 'GET_DETAILS', payload: location.id })
         history.push(`/details/${location.id}`)

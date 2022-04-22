@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 
 // Material UI
@@ -14,7 +14,7 @@ function Profile() {
   const worlds = useSelector(store => store.worldsReducer)
 
   useEffect(() => {
-    // dispatch to get all worlds to display on the DOM
+    // dispatch to get all worlds for current user to display on the DOM
     dispatch({ type: 'GET_WORLDS' });
   }, []);
 
@@ -23,12 +23,14 @@ function Profile() {
       <Header
         pageTitle={`${user.username}'s Profile`}
       />
+
       <Box
         align='center'
       >
         <h1>{user.username}</h1>
         <h2>Worlds</h2>
       </Box>
+
       <div>
         {worlds.map(world => {
           return (

@@ -19,7 +19,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
         }).catch(err => {
             console.log('Error in getting locations', err);
         })
-});
+}); // END GET
 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
@@ -47,7 +47,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         }).catch(err => {
             console.log('Error in adding location', err);
         })
-});
+}); // END POST
 
 
 module.exports = router;

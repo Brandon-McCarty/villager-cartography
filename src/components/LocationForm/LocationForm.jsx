@@ -18,6 +18,7 @@ function LocationForm({ setTrigger }) {
     const [exploredStatus, setExploredStatus] = useState(false);
     const [description, setDescription] = useState('');
 
+    // Submit user input to create a new location
     const addLocation = (event) => {
         event.preventDefault();
         console.log(id);

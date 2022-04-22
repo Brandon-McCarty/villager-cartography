@@ -14,6 +14,7 @@ function* getEditLocation(action) {
 }
 
 function* updateLocation (action) {
+    // Submit the edited information to the server and database
     try {
         console.log(action.payload)  
         yield axios.put(`/edit/${action.payload.id}`, action.payload)

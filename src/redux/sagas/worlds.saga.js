@@ -22,6 +22,7 @@ function* addNewWorld (action) {
     }
 }
 
+// Delete the world and all information tied to it
 function* deleteWorld (action) {
     try {
         yield axios.delete(`/worlds/${action.payload}`);

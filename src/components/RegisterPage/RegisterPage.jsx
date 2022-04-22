@@ -1,6 +1,7 @@
 import React from 'react';
-
 import { useHistory } from 'react-router-dom';
+
+import Header from '../Header/Header';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 function RegisterPage() {
@@ -8,6 +9,10 @@ function RegisterPage() {
 
   return (
     <div>
+      <Header 
+        pageTitle='Register'
+      />
+
       <RegisterForm />
 
       <center>

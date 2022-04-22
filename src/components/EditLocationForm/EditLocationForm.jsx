@@ -17,6 +17,7 @@ function EditLocationForm() {
     const editLocation = useSelector(store => store.editLocation);
 
 
+    // Update and store the information to edit as it is being input
     const handleChange = (event, property) => {
         dispatch({
             type: 'EDIT_ONCHANGE',
@@ -24,6 +25,7 @@ function EditLocationForm() {
         })
     }
 
+    // Handle change for checkbox
     const handleExplored = (event) => {
 
         let exploredStatus = event.target.checked
@@ -34,13 +36,14 @@ function EditLocationForm() {
         })
     }
 
+    // Delete chosen location
     const deleteLocation = () => {
         console.log('DELETE', editLocation.location_name);
         dispatch({ type: 'DELETE_LOCATION', payload: { id: editLocation.id, world_id: editLocation.world_id } })
         history.push(`/locations/${editLocation.world_id}`)
       }
 
-
+      // Submit stored edit and update database
     const updateLocation = (event) => {
         event.preventDefault();
         dispatch({ type: 'UPDATE_LOCATION', payload: editLocation })
@@ -49,7 +52,7 @@ function EditLocationForm() {
     }
 
     useEffect(() => {
-        // Get locations of world based on world id -- maybe change to join code for more security
+        // Get the information for the location to edit
         dispatch({ type: 'GET_EDIT_LOCATION', payload: id });
     }, [id]);
 

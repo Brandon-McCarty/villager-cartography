@@ -29,6 +29,6 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
         }).catch(err => {
             console.log('Error in getting locations', err);
         })
-});
+}); // END PUT
 
 module.exports = router;
