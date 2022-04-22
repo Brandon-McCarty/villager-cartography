@@ -123,7 +123,7 @@ function LocationForm({ setTrigger }) {
                         backgroundColor: "#4A6F28",
                     }}
                     onClick={addLocation}
-                >Add World</Button>
+                >Add Location</Button>
             </form>
         </div>
     )
