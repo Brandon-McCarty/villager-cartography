@@ -5,18 +5,19 @@ body,
   background-color: #974A0C;
 }
 
+@font-face{
+  font-family: "Minecrafter";
+  src: url("/fonts/Minecrafter.Reg.ttf") format("truetype");
+}
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Minecrafter';
   margin: 0px;
 }
 
 img {
   display: inline-block;
   max-width: 100%;
-}
-
-ul {
-  list-style: none;
 }
 
 req.user.id
