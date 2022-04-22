@@ -1,10 +1,13 @@
-import { useDispatch, useSelector } from 'react-redux'
+import '../LocationDetails/LocationDetails.css'
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 
 // Material UI
-import { Paper, Box, Button, TextField } from '@material-ui/core'
+import { Paper, Box, Button, TextField } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function EditLocationForm() {
 
@@ -145,8 +148,22 @@ function EditLocationForm() {
                                 onChange={(event) => handleChange(event, 'description')}
                             />
                         </Box>
-                        <button type="submit">Update Location</button>
-                        <button>Delete</button>
+                        <Button 
+                        style={{
+                            backgroundColor: '#4A6F28'
+                          }}
+                        type="submit"
+                        >Update <EditIcon />
+                        </Button>
+
+                            <span className='btn-separator'></span>
+
+                        <Button
+                        style={{
+                            backgroundColor: '#d43c2c'
+                          }}
+                        >Delete <DeleteIcon />
+                        </Button>
                     </form>
                 </Paper>
             </Box>
