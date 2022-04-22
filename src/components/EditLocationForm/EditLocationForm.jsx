@@ -34,6 +34,12 @@ function EditLocationForm() {
         })
     }
 
+    const deleteLocation = () => {
+        console.log('DELETE', editLocation.location_name);
+        dispatch({ type: 'DELETE_LOCATION', payload: { id: editLocation.id, world_id: editLocation.world_id } })
+        history.push(`/locations/${editLocation.world_id}`)
+      }
+
 
     const updateLocation = (event) => {
         event.preventDefault();
@@ -148,6 +154,7 @@ function EditLocationForm() {
                                 onChange={(event) => handleChange(event, 'description')}
                             />
                         </Box>
+
                         <Button 
                         style={{
                             backgroundColor: '#4A6F28'
@@ -162,6 +169,7 @@ function EditLocationForm() {
                         style={{
                             backgroundColor: '#d43c2c'
                           }}
+                          onClick={deleteLocation}
                         >Delete <DeleteIcon />
                         </Button>
                     </form>
