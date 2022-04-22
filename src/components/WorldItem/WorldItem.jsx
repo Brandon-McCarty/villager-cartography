@@ -27,7 +27,7 @@ function WorldItem({ world }) {
     return (
         <div>
             <Box
-                p={2}
+                p={1}
             >
                 <Paper
                     align='center'

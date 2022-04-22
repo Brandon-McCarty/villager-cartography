@@ -2,6 +2,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
+// Material UI
+import { Button, Box } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
+
 import LocationsItem from '../LocationsItem/LocationsItem';
 import LocationFormPopup from '../LocationFormPopup/LocationFormPopup';
 import Header from '../Header/Header';
@@ -28,16 +32,32 @@ function LocationsList() {
 
     return (
         <div>
-            <Header 
+            <Header
                 pageTitle='Locations'
             />
-            <button onClick={addNewLocation}>Add Location</button>
+            <Box
+                pr={1}
+                pb={1}
+                style={{
+                    display: 'flex',
+                    justifyContent: 'end',
+                }}
+
+            >
+                <Button
+                    style={{
+                        backgroundColor: "#4A6F28",
+                    }}
+                    onClick={addNewLocation}
+                >
+                    <AddIcon />
+                </Button>
+            </Box>
             <LocationFormPopup
                 trigger={locationFormTrigger}
                 setTrigger={setLocationFormTrigger}
             />
 
-            <p>LOCATIONS</p>
             {locations?.map(location => {
                 return (
                     <LocationsItem
