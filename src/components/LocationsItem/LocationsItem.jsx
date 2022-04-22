@@ -32,7 +32,6 @@ function LocationsItem({ location }) {
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
-                        spacing: 50
                     }}
                     align='center'
                 >

@@ -1,9 +1,12 @@
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
 
+import './WorldItem.css'
+
 
 // Material UI
-import { Paper, Box } from '@material-ui/core'
+import { Paper, Box, Button } from '@material-ui/core'
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function WorldItem({ world }) {
 
@@ -23,8 +26,8 @@ function WorldItem({ world }) {
 
     return (
         <div>
-            <Box 
-            p={2} 
+            <Box
+                p={2}
             >
                 <Paper
                     align='center'
@@ -33,7 +36,20 @@ function WorldItem({ world }) {
                         border: "1px solid black",
                     }}
                 >
-                    <p onClick={getLocations}>{world.world_name}<span>  </span><button onClick={deleteWorld}>DELETE</button></p>
+                    <span 
+                        onClick={getLocations}
+                        className='world-name'
+                    >{world.world_name}</span>
+                    <Button
+                    style={{
+                        justifyContent: 'center',
+                        alignItems: 'flex-end'
+                    
+                    }}
+                    align=''
+                        onClick={deleteWorld}
+                    ><DeleteIcon />
+                    </Button>
                 </Paper>
             </Box>
         </div>
