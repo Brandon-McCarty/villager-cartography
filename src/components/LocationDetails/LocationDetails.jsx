@@ -7,6 +7,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import { Paper, Box, Button } from '@material-ui/core'
 import EditIcon from '@material-ui/icons/Edit';
 import DeleteIcon from '@material-ui/icons/Delete';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import Header from '../Header/Header';
 
@@ -19,6 +20,7 @@ function LocationDetails() {
   const id = useParams().id;
 
   const deleteLocation = () => {
+    // Delete selected location
     console.log('DELETE', details.location_name);
     dispatch({ type: 'DELETE_LOCATION', payload: { id: details.id, world_id: details.world_id } })
     history.push(`/locations/${details.world_id}`)
@@ -26,8 +28,14 @@ function LocationDetails() {
 
 
   const editLocation = () => {
+    // Send to edit form
     console.log('EDIT');
     history.push(`/edit/${id}`)
+  }
+
+  const backToLocations = () => {
+    // Send back to locations
+    history.push(`/locations/${details.world_id}`)
   }
 
 
@@ -43,6 +51,13 @@ function LocationDetails() {
       <Header
         pageTitle={`${details.location_name} Details`}
       />
+
+      <Button 
+      style={{
+        backgroundColor: '#4A6F28'
+      }}
+      onClick={backToLocations}
+      ><ArrowBackIcon /> Locations</Button>
 
       <Box p={2}>
         <Paper
