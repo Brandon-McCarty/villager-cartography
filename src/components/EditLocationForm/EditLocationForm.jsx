@@ -55,9 +55,11 @@ function EditLocationForm() {
 
     return (
         <div>
+
             <Header
                 pageTitle={`Edit ${editLocation.location_name}`}
             />
+            
             <Box p={1} height={300}>
                 <Paper
                     style={{
