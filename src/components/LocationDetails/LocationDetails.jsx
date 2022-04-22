@@ -82,7 +82,7 @@ function LocationDetails() {
             }}
             onClick={editLocation}
           >
-            Edit <EditIcon />
+           <EditIcon /> Edit
           </Button>
           
             <span className='btn-separator'> </span>
@@ -93,7 +93,7 @@ function LocationDetails() {
           }}
             onClick={deleteLocation}
           >
-            Delete <DeleteIcon />
+            <DeleteIcon /> Delete
           </Button>
           
 

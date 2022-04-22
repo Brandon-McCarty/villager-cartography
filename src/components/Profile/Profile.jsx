@@ -36,15 +36,13 @@ function Profile() {
           return (
             <Box
               p={1}
-              style={{
-                textDecoration: 'none'
-              }}
-              key={world.id}
-              component={Link}
-              to={`/locations/${world.id}`}
             >
+
               <Paper
                 align='center'
+                key={world.id}
+                component={Link}
+                to={`/locations/${world.id}`}
                 style={{
                   backgroundColor: "#C28340",
                   border: "1px solid black",
@@ -52,10 +50,11 @@ function Profile() {
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'center',
+                  textDecoration: 'none'
                 }}
-
               >{world.world_name}
               </Paper>
+
             </Box>
           )
         })}

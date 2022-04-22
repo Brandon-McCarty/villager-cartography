@@ -165,7 +165,7 @@ function EditLocationForm() {
                             backgroundColor: '#4A6F28'
                           }}
                         type="submit"
-                        >Update <EditIcon />
+                        ><EditIcon /> Update
                         </Button>
 
                             <span className='btn-separator'></span>
@@ -175,7 +175,7 @@ function EditLocationForm() {
                             backgroundColor: '#d43c2c'
                           }}
                           onClick={deleteLocation}
-                        >Delete <DeleteIcon />
+                        ><DeleteIcon /> Delete
                         </Button>
                     </form>
                 </Paper>

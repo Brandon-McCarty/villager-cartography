@@ -7,7 +7,6 @@ import './WorldItem.css'
 // Sweet Alert 2
 import Swal from 'sweetalert2'
 
-
 // Material UI
 import { Paper, Box, Button } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -71,11 +70,9 @@ function WorldItem({ world }) {
                     >{world.world_name}</span>
                     <Button
                         style={{
-                            justifyContent: 'center',
-                            alignItems: 'flex-end'
+                            
 
                         }}
-                        align=''
                         onClick={deleteWorld}
                     ><DeleteIcon />
                     </Button>
