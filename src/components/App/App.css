@@ -15,6 +15,11 @@ img {
   max-width: 100%;
 }
 
+ul {
+  list-style: none;
+}
+
+req.user.id
 /* --------------------------------------------------------------------------------
 Container
 -------------------------------------------------------------------------------- */
@@ -30,10 +35,10 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #014041;
+  border-color: black;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
+  background-color: #4A6F28;
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
@@ -102,9 +107,10 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
+  background-color: #974A0C;
   border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  /* box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4); */
+  border-color: black;
 }
 
 input {

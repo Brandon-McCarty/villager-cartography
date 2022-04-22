@@ -1,8 +1,13 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import WorldItem from '../WorldItem/WorldItem';
 import Popup from '../WorldFormPopup/WorldFormPopup';
+import Header from '../Header/Header';
+
+// Material UI
+import { Button, Box } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
 function WorldList() {
 
@@ -23,12 +28,30 @@ function WorldList() {
 
     return (
         <>
-            <button onClick={addNewWorld}>ADD WORLD</button>
+            <Header
+                pageTitle='Worlds'
+            />
+            <Box
+                pr={1}
+                pb={1}
+                style={{
+                    display: 'flex',
+                    justifyContent: 'end',
+                }}
+
+            >
+                <Button
+                    style={{
+                        backgroundColor: "#4A6F28",
+                    }}
+                    label='Add World'
+                    onClick={addNewWorld}><AddIcon /></Button>
+            </Box>
             <Popup
                 trigger={worldFormTrigger}
                 setTrigger={setWorldFormTrigger}
             />
-            <ul>
+            <div>
                 {worlds.map(world => {
                     return (
                         <WorldItem
@@ -36,7 +59,7 @@ function WorldList() {
                             world={world}
                         />)
                 })}
-            </ul>
+            </div>
         </>
     )
 }

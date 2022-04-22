@@ -15,7 +15,6 @@ function WorldFormPopup({ trigger, setTrigger }) {
             backgroundColor: "#d43c2c",
             padding: "9px 18px",
             fontSize: "14px",
-            fontColor: "white"
           }}
         >Close</Button>
         <WorldForm
