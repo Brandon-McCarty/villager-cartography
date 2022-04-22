@@ -1,8 +1,11 @@
-import {useDispatch} from 'react-redux'
-import {useState} from 'react';
+import { useDispatch } from 'react-redux'
+import { useState } from 'react';
 import { useParams } from 'react-router-dom'
 
-function LocationForm({setTrigger}) {
+// Material UI
+import { Box, Button, TextField } from '@material-ui/core';
+
+function LocationForm({ setTrigger }) {
 
     const dispatch = useDispatch();
     const id = useParams().id;
@@ -18,48 +21,81 @@ function LocationForm({setTrigger}) {
     const addLocation = (event) => {
         event.preventDefault();
         console.log(id);
-        dispatch({type: 'ADD_LOCATION', payload: {
-            location_name: newLocationName, 
-            x_coordinate: xCoordinate, 
-            y_coordinate: yCoordinate,
-            z_coordinate: zCoordinate,
-            description: description,
-            explored_status: exploredStatus,
-            world_id: id
-        }})
+        dispatch({
+            type: 'ADD_LOCATION', payload: {
+                location_name: newLocationName,
+                x_coordinate: xCoordinate,
+                y_coordinate: yCoordinate,
+                z_coordinate: zCoordinate,
+                description: description,
+                explored_status: exploredStatus,
+                world_id: id
+            }
+        })
         setTrigger(false);
     }
 
     return (
         <div>
             <form action="submit" onSubmit={addLocation}>
+                <Box
+                    pt={1}
+                    pb={1}
+                >
+                    <TextField
+                        id='outlined-basic'
+                        label='Location Name'
+                        type="text"
+                        variant='outlined'
+                        value={newLocationName}
+                        onChange={(event) => setNewLocationName(event.target.value)}
+                    />
+                </Box>
+
+                <Box
+                    pt={1}
+                    pb={1}
+                >
+                    <TextField
+                        id='outlined-basic'
+                        label='X Coordinate'
+                        type="number"
+                        variant='outlined'
+                        value={xCoordinate}
+                        onChange={(event) => setXCoordinate(event.target.value)}
+                    />
+                </Box>
+
+                <Box
+                    pt={1}
+                    pb={1}
+                >
+                    <TextField
+                        id='outlined-basic'
+                        label='Y Coordinate'
+                        type="number"
+                        variant='outlined'
+                        value={yCoordinate}
+                        onChange={(event) => setYCoordinate(event.target.value)}
+                    />
+                </Box>
+
+                <Box
+                    pt={1}
+                    pb={1}
+                >
+                    <TextField
+                        id='outlined-basic'
+                        label='Z Coordinate'
+                        type="number"
+                        variant='outlined'
+                        value={zCoordinate}
+                        onChange={(event) => setZCoordinate(event.target.value)}
+                    />
+                </Box>
+
+
                 <input
-                    type="text"
-                    placeholder="Location Name"
-                    value={newLocationName}
-                    onChange={(event) => setNewLocationName(event.target.value)}
-                />
-                <input
-                    type="number"
-                    placeholder="X Coordinate"
-                    value={xCoordinate}
-                    onChange={(event) => setXCoordinate(event.target.value)}
-                />
-                <input
-                    type="number"
-                    placeholder="Y Coordinate"
-                    value={yCoordinate}
-                    onChange={(event) => setYCoordinate(event.target.value)}
-                />
-                <input
-                    type="number"
-                    placeholder="Z Coordinate"
-                    value={zCoordinate}
-                    onChange={(event) => setZCoordinate(event.target.value)}
-                />
-                <br />
-                
-                <input 
                     type="checkbox"
                     id="explore"
                     name="explore"
@@ -67,17 +103,27 @@ function LocationForm({setTrigger}) {
                     onChange={(event) => setExploredStatus(event.target.checked)}
                 />
                 <label htmlFor="explore">Mark as Explored</label>
-                <br />
-                <textarea
-                    rows="5"
-                    cols="30"
-                    type="text"
-                    placeholder="Description"
-                    value={description}
-                    onChange={(event) => setDescription(event.target.value)}
-                />
-                <br />
-                <button type="submit">Add Location</button>
+                <Box
+                    pt={1}
+                    pb={1}
+                >
+                    <TextField
+                        id="outlined-textarea"
+                        label="Description"
+                        multiline
+                        variant="outlined"
+                        type="text"
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
+                    />
+                </Box>
+                <Button
+                type='submit'
+                    style={{
+                        backgroundColor: "#4A6F28",
+                    }}
+                    onClick={addLocation}
+                >Add World</Button>
             </form>
         </div>
     )

@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import Header from '../Header/Header';
 
 // Material UI
-import { Paper, Box, TextField } from '@material-ui/core'
+import { Paper, Box, Button, TextField } from '@material-ui/core'
 
 function EditLocationForm() {
 
@@ -62,65 +62,89 @@ function EditLocationForm() {
                     align='center'
                 >
                     <form action="submit" onSubmit={updateLocation}>
-                        <TextField
-                            type="text"
-                            id='outlined-basic'
-                            label='Location Name'
-                            value={editLocation.location_name || ''}
-                            onChange={(event) => handleChange(event, 'location_name')}
-                        />
+                        <Box
+                            pt={1}
+                            pb={1}
+                        >
+                            <TextField
+                                type="text"
+                                id='outlined-basic'
+                                label='Location Name'
+                                variant='outlined'
+                                value={editLocation.location_name || ''}
+                                onChange={(event) => handleChange(event, 'location_name')}
+                            />
+                        </Box>
 
-                        <br />
+                        <Box
+                            pt={1}
+                            pb={1}
+                        >
+                            <TextField
+                                id='outlined-basic'
+                                label='X Coordinate'
+                                type="number"
+                                variant='outlined'
+                                value={editLocation.x_coordinate || ''}
+                                onChange={(event) => handleChange(event, 'x_coordinate')}
+                            />
+                        </Box>
 
-                        <TextField
-                            id='outlined-basic'
-                            label='X Coordinate'
-                            type="number"
-                            value={editLocation.x_coordinate || ''}
-                            onChange={(event) => handleChange(event, 'x_coordinate')}
-                        />
+                        <Box
+                            pt={1}
+                            pb={1}
+                        >
+                            <TextField
+                                id='outlined-basic'
+                                label='Y Coordinate'
+                                type="number"
+                                variant='outlined'
+                                value={editLocation.y_coordinate || ''}
+                                onChange={(event) => handleChange(event, 'y_coordinate')}
+                            />
+                        </Box>
 
-                        <br />
+                        <Box
+                            pt={1}
+                            pb={1}
+                        >
+                            <TextField
+                                id='outlined-basic'
+                                label='Z Coordinate'
+                                type="number"
+                                variant='outlined'
+                                value={editLocation.z_coordinate || ''}
+                                onChange={(event) => handleChange(event, 'z_coordinate')}
+                            />
+                        </Box>
 
-                        <TextField
-                            id='outlined-basic'
-                            label='Y Coordinate'
-                            type="number"
-                            value={editLocation.y_coordinate || ''}
-                            onChange={(event) => handleChange(event, 'y_coordinate')}
-                        />
+                        <Box
+                            pt={1}
+                            pb={1}
+                        >
+                            <input
+                                type="checkbox"
+                                id="explore"
+                                name="explore"
+                                defaultChecked={editLocation.explored_status || ''}
+                                onChange={handleExplored}
+                            />
+                            <label htmlFor="explore">Mark as Explored</label>
+                        </Box>
 
-                        <br />
-
-                        <TextField
-                            id='outlined-basic'
-                            label='Z Coordinate'
-                            type="number"
-                            value={editLocation.z_coordinate || ''}
-                            onChange={(event) => handleChange(event, 'z_coordinate')}
-                        />
-                        <br />
-
-                        <input
-                            type="checkbox"
-                            id="explore"
-                            name="explore"
-                            defaultChecked={editLocation.explored_status || ''}
-                            onChange={handleExplored}
-                        />
-                        <label htmlFor="explore">Mark as Explored</label>
-
-                        <br />
-
-                        <TextField
-                            id="outlined-textarea"
-                            label="Description"
-                            multiline
-                            variant="outlined"
-                            value={editLocation.description || ''}
-                            onChange={(event) => handleChange(event, 'description')}
-                        />
-                        <br />
+                        <Box
+                            pt={1}
+                            pb={1}
+                        >
+                            <TextField
+                                id="outlined-textarea"
+                                label="Description"
+                                multiline
+                                variant="outlined"
+                                value={editLocation.description || ''}
+                                onChange={(event) => handleChange(event, 'description')}
+                            />
+                        </Box>
                         <button type="submit">Update Location</button>
                         <button>Delete</button>
                     </form>
