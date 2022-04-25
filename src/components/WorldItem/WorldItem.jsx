@@ -18,9 +18,9 @@ function WorldItem({ world }) {
 
     // Get all locations associated with chosen world
     const getLocations = () => {
-        console.log(world)
+        console.log('WORLD IS', world)
         dispatch({ type: 'GET_LOCATIONS', payload: world.id })
-        history.push(`/locations/${world.join_code}`)
+        history.push(`/locations/${world.id}`)
     }
 
     const deleteWorld = () => {

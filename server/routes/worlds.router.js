@@ -13,7 +13,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/', rejectUnauthenticated, (req, res) => {
     // Select all worlds for the current user
     const query = `
-                SELECT * FROM "worlds" 
+                SELECT "worlds".id, "worlds".world_name, "worlds".user_id, "worlds".join_code FROM "worlds" 
                 JOIN "user_worlds" ON "worlds".id = "user_worlds".world_id
                 WHERE "user_worlds".user_id = $1;
                 `;

@@ -12,7 +12,7 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
                 SELECT "locations".id, "locations".location_name, "locations".x_coordinate, "locations".y_coordinate, "locations".z_coordinate, 
                 "locations".explored_status, "locations".description, "locations".world_id FROM "locations"
                 JOIN "worlds" ON "locations".world_id = "worlds".id
-                WHERE "worlds".join_code = $1;
+                WHERE "worlds".id = $1;
                 `;
 
     pool.query(query, [req.params.id])
