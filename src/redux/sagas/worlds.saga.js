@@ -32,11 +32,23 @@ function* deleteWorld (action) {
     }
 }
 
+// Join an existing world
+function* joinWorld (action) {
+    try {
+        yield axios.post(`/worlds/join`, action.payload);
+        yield put ({type: 'GET_WORLDS'});
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+
 // All sagas for /worlds route
 function* worldsSaga () {
-    yield takeEvery('GET_WORLDS', getWorlds)
-    yield takeEvery('ADD_WORLD', addNewWorld)
-    yield takeEvery('DELETE_WORLD', deleteWorld)
+    yield takeEvery('GET_WORLDS', getWorlds);
+    yield takeEvery('ADD_WORLD', addNewWorld);
+    yield takeEvery('DELETE_WORLD', deleteWorld);
+    yield takeEvery('JOIN_WORLD', joinWorld)
 }
 
 export default worldsSaga;

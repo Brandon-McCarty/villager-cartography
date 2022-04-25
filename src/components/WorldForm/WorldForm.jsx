@@ -2,7 +2,7 @@ import {useDispatch} from 'react-redux'
 import {useState} from 'react';
 
 // Material UI
-import {TextField, Button } from '@material-ui/core';
+import {TextField, Button, Box } from '@material-ui/core';
 
 function WorldForm({setTrigger}) {
 
@@ -24,6 +24,8 @@ function WorldForm({setTrigger}) {
     // User can enter join code to join an existing world
     const joinWorld = () => {
       console.log('JOIN');
+      dispatch({type: 'JOIN_WORLD', payload: {join_code: joinCode}});
+      setJoinCode('');
     }
 
   return (
@@ -40,7 +42,7 @@ function WorldForm({setTrigger}) {
             />
 
             <p>This name cannot be changed!</p>
-
+            
             <Button 
             style={{
               backgroundColor: "#4A6F28",   
@@ -48,6 +50,11 @@ function WorldForm({setTrigger}) {
             onClick={addNewWorld}
             >Add World</Button>
         </form>
+          <Box
+            pt={2}
+          >
+        <h2>Join a World</h2>
+        </Box>
 
         <form action="submit">
             <TextField
@@ -57,15 +64,17 @@ function WorldForm({setTrigger}) {
             value={joinCode}
             onChange={(event) => setJoinCode(event.target.value)}
             />
-
-            <p>This name cannot be changed!</p>
-
+            
+            <Box
+              pt={1}
+            >
             <Button 
             style={{
               backgroundColor: "#4A6F28",   
           }}
             onClick={joinWorld}
             >Join World</Button>
+            </Box>
         </form>
     </>
   )

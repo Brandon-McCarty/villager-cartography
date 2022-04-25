@@ -14,7 +14,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
     // Select all worlds for the current user
     const query = `
                 SELECT * FROM "worlds" 
-                WHERE "user_id" = $1;
+                JOIN "user_worlds" ON "worlds".id = "user_worlds".world_id
+                WHERE "user_worlds".user_id = $1;
                 `;
     pool.query(query, [req.user.id])
         .then(result => {
@@ -34,7 +35,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         pool: 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789'
     });
 
-    
+
     const query = `
                 INSERT INTO "worlds" ("world_name", "user_id", "join_code")
                 VALUES ($1, $2, $3);
@@ -49,15 +50,15 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                             WHERE "join_code" = $2;
                             `;
             pool.query(queryText, [req.user.id, joinCode])
-        .then(result => {
-            res.sendStatus(201);
+                .then(result => {
+                    res.sendStatus(201);
+                }).catch(err => {
+                    console.log('Error in creating new world', err);
+                })
         }).catch(err => {
             console.log('Error in creating new world', err);
         })
-        }).catch(err => {
-            console.log('Error in creating new world', err);
-        })
-}); // END POST 
+}); // END POST NEW WORLD
 
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
     // Delete specified world
@@ -72,5 +73,21 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
             console.log('Error in creating new world', err);
         })
 }); // END DELETE
+
+
+// Join an existing world
+router.post('/join', rejectUnauthenticated, (req, res) => {
+    const query = `
+                INSERT INTO "user_worlds" ("user_id", "world_id")
+                VALUES $1, $2;
+                `;
+    
+    pool.query(query, [req.user.id, req.body.join_code])
+        .then(result => {
+            res.sendStatus(204);
+        }).catch(err => {
+            console.log('Error in joining world', err);
+        })
+});
 
 module.exports = router;
