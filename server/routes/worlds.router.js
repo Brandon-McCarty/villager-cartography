@@ -13,7 +13,7 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/', rejectUnauthenticated, (req, res) => {
     // Select all worlds for the current user
     const query = `
-                SELECT "worlds".id, "worlds".world_name, "worlds".user_id, "worlds".join_code FROM "worlds" 
+                SELECT "worlds".id, "worlds".world_name, "worlds".user_id, "worlds".join_code FROM "worlds"
                 JOIN "user_worlds" ON "worlds".id = "user_worlds".world_id
                 WHERE "user_worlds".user_id = $1;
                 `;
@@ -79,7 +79,8 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 router.post('/join', rejectUnauthenticated, (req, res) => {
     const query = `
                 INSERT INTO "user_worlds" ("user_id", "world_id")
-                VALUES $1, $2;
+                SELECT $1, "id" FROM "worlds"
+                WHERE "worlds".join_code = $2;
                 `;
     
     pool.query(query, [req.user.id, req.body.join_code])

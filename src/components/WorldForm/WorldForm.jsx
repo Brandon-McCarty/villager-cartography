@@ -25,6 +25,7 @@ function WorldForm({setTrigger}) {
     const joinWorld = () => {
       console.log('JOIN');
       dispatch({type: 'JOIN_WORLD', payload: {join_code: joinCode}});
+      setTrigger(false);
       setJoinCode('');
     }
 
