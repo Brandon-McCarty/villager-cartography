@@ -20,7 +20,7 @@ function WorldItem({ world }) {
     const getLocations = () => {
         console.log(world)
         dispatch({ type: 'GET_LOCATIONS', payload: world.id })
-        history.push(`/locations/${world.world_id}`)
+        history.push(`/locations/${world.join_code}`)
     }
 
     const deleteWorld = () => {

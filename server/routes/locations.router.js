@@ -9,8 +9,10 @@ const { rejectUnauthenticated } = require('../modules/authentication-middleware'
 router.get('/:id', rejectUnauthenticated, (req, res) => {
     // GET for locations of chosen world
     const query = `
-                SELECT * FROM "locations"
-                WHERE world_id = $1;
+                SELECT "locations".id, "locations".location_name, "locations".x_coordinate, "locations".y_coordinate, "locations".z_coordinate, 
+                "locations".explored_status, "locations".description, "locations".world_id FROM "locations"
+                JOIN "worlds" ON "locations".world_id = "worlds".id
+                WHERE "worlds".join_code = $1;
                 `;
 
     pool.query(query, [req.params.id])
