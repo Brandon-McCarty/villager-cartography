@@ -29,7 +29,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     // Generate random join code
     let joinCode = chance.string({
         length: 10,
-        pool: 'ABCDEFGHJKMNPQRSTUVWXYZ123456789'
+        pool: 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789'
     });
 
     // Add new world from user input
@@ -41,7 +41,18 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
     pool.query(query, values)
         .then(result => {
+            const queryText = `
+                            INSERT INTO "user_worlds" ("user_id", "world_id")
+                            SELECT $1, "id" FROM WORLDS
+                            WHERE "join_code" = $2;
+            `
+            
+            pool.query(queryText, [req.user.id, joinCode])
+        .then(result => {
             res.sendStatus(201);
+        }).catch(err => {
+            console.log('Error in creating new world', err);
+        })
         }).catch(err => {
             console.log('Error in creating new world', err);
         })

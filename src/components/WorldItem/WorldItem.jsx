@@ -69,10 +69,6 @@ function WorldItem({ world }) {
                         className='world-name'
                     >{world.world_name}</span>
                     <Button
-                        style={{
-                            
-
-                        }}
                         onClick={deleteWorld}
                     ><DeleteIcon />
                     </Button>

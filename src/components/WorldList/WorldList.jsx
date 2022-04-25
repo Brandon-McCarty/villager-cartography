@@ -31,6 +31,10 @@ function WorldList() {
             <Header
                 pageTitle='Worlds'
             />
+            <Popup
+                trigger={worldFormTrigger}
+                setTrigger={setWorldFormTrigger}
+            />
             <Box
                 pr={1}
                 pb={1}
@@ -47,10 +51,7 @@ function WorldList() {
                     label='Add World'
                     onClick={addNewWorld}><AddIcon /></Button>
             </Box>
-            <Popup
-                trigger={worldFormTrigger}
-                setTrigger={setWorldFormTrigger}
-            />
+            
             <div>
                 {worlds.map(world => {
                     return (
