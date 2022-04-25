@@ -8,7 +8,7 @@ import './WorldItem.css'
 import Swal from 'sweetalert2'
 
 // Material UI
-import { Paper, Box, Button } from '@material-ui/core'
+import { Paper, Box } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete';
 
 function WorldItem({ world }) {
@@ -18,7 +18,7 @@ function WorldItem({ world }) {
 
     // Get all locations associated with chosen world
     const getLocations = () => {
-        console.log(world.id)
+        console.log('WORLD IS', world)
         dispatch({ type: 'GET_LOCATIONS', payload: world.id })
         history.push(`/locations/${world.id}`)
     }
@@ -47,7 +47,7 @@ function WorldItem({ world }) {
                     title: 'Deleted!',
                     text: `${world.world_name} has been deleted.`,
                     icon: 'success'
-                })   
+                })
             }
         })
     }
@@ -62,20 +62,22 @@ function WorldItem({ world }) {
                     style={{
                         backgroundColor: "#C28340",
                         border: "1px solid black",
+                        minHeight: '5vh',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
                     }}
                 >
                     <span
                         onClick={getLocations}
                         className='world-name'
-                    >{world.world_name}</span>
-                    <Button
-                        style={{
-                            
+                    >{world.world_name}
 
-                        }}
+                    </span>
+                    <button className='delete-btn'
                         onClick={deleteWorld}
                     ><DeleteIcon />
-                    </Button>
+                    </button>
                 </Paper>
             </Box>
         </div>

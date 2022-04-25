@@ -52,11 +52,11 @@ function LocationDetails() {
         pageTitle={`${details.location_name} Details`}
       />
 
-      <Button 
-      style={{
-        backgroundColor: '#4A6F28'
-      }}
-      onClick={backToLocations}
+      <Button
+        style={{
+          backgroundColor: '#4A6F28'
+        }}
+        onClick={backToLocations}
       ><ArrowBackIcon /> Locations</Button>
 
       <Box p={2}>
@@ -75,27 +75,27 @@ function LocationDetails() {
           <p>{details.description}</p>
           <h3>{details.explored_status ? 'Explored' : 'Unexplored'}</h3>
 
-          
+
           <Button
             style={{
               backgroundColor: '#4A6F28'
             }}
             onClick={editLocation}
           >
-           <EditIcon /> Edit
+            <EditIcon /> Edit
           </Button>
-          
-            <span className='btn-separator'> </span>
+
+          <span className='btn-separator'> </span>
 
           <Button
-          style={{
-            backgroundColor: '#d43c2c'
-          }}
+            style={{
+              backgroundColor: '#d43c2c'
+            }}
             onClick={deleteLocation}
           >
             <DeleteIcon /> Delete
           </Button>
-          
+
 
         </Paper>
       </Box>

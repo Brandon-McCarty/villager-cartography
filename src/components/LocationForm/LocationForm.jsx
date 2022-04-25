@@ -119,7 +119,7 @@ function LocationForm({ setTrigger }) {
                     />
                 </Box>
                 <Button
-                type='submit'
+                    type='submit'
                     style={{
                         backgroundColor: "#4A6F28",
                     }}
