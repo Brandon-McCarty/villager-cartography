@@ -36,11 +36,11 @@ function Profile() {
           return (
             <Box
               p={1}
+              key={world.id}
             >
 
               <Paper
                 align='center'
-                key={world.id}
                 component={Link}
                 to={`/locations/${world.id}`}
                 style={{

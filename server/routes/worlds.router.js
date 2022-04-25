@@ -2,6 +2,10 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+// Chance.js for random join code
+const Chance = require('chance');
+let chance = new Chance();
+
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
@@ -22,12 +26,18 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 }); // END GET 
 
 router.post('/', rejectUnauthenticated, (req, res) => {
+    // Generate random join code
+    let joinCode = chance.string({
+        length: 10,
+        pool: 'ABCDEFGHJKMNPQRSTUVWXYZ123456789'
+    });
+
     // Add new world from user input
     const query = `
-                INSERT INTO "worlds" ("world_name", "user_id")
-                VALUES ($1, $2);
+                INSERT INTO "worlds" ("world_name", "user_id", "join_code")
+                VALUES ($1, $2, $3);
                 `;
-    const values = [req.body.world_name, req.user.id]
+    const values = [req.body.world_name, req.user.id, joinCode]
 
     pool.query(query, values)
         .then(result => {
