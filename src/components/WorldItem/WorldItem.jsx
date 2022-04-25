@@ -47,7 +47,7 @@ function WorldItem({ world }) {
                     title: 'Deleted!',
                     text: `${world.world_name} has been deleted.`,
                     icon: 'success'
-                })   
+                })
             }
         })
     }
@@ -62,16 +62,22 @@ function WorldItem({ world }) {
                     style={{
                         backgroundColor: "#C28340",
                         border: "1px solid black",
+                        minHeight: '5vh',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        justifyContent: 'center',
                     }}
                 >
                     <span
                         onClick={getLocations}
                         className='world-name'
-                    >{world.world_name}</span>
-                    <Button
+                    >{world.world_name}
+
+                    </span>
+                    <button className='delete-btn'
                         onClick={deleteWorld}
                     ><DeleteIcon />
-                    </Button>
+                    </button>
                 </Paper>
             </Box>
         </div>

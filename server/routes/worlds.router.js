@@ -25,6 +25,8 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
 }); // END GET 
 
+
+// Add new world from user input
 router.post('/', rejectUnauthenticated, (req, res) => {
     // Generate random join code
     let joinCode = chance.string({
@@ -32,7 +34,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         pool: 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789'
     });
 
-    // Add new world from user input
+    
     const query = `
                 INSERT INTO "worlds" ("world_name", "user_id", "join_code")
                 VALUES ($1, $2, $3);
@@ -45,8 +47,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
                             INSERT INTO "user_worlds" ("user_id", "world_id")
                             SELECT $1, "id" FROM WORLDS
                             WHERE "join_code" = $2;
-            `
-            
+                            `;
             pool.query(queryText, [req.user.id, joinCode])
         .then(result => {
             res.sendStatus(201);
