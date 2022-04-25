@@ -55,7 +55,7 @@ function BottomNav() {
                     value={value}
                     onChange={handleChange}
                 >
-                    
+
                     <BottomNavigationAction
                         label='Back'
                         icon={<ArrowBackIcon />}

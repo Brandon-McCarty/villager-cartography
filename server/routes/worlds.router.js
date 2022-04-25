@@ -9,7 +9,7 @@ let chance = new Chance();
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 
-//  * GET route for /worlds
+// GET route for /worlds
 router.get('/', rejectUnauthenticated, (req, res) => {
     // Select all worlds for the current user
     const query = `
@@ -35,11 +35,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         pool: 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789'
     });
 
-
     const query = `
                 INSERT INTO "worlds" ("world_name", "user_id", "join_code")
                 VALUES ($1, $2, $3);
                 `;
+
     const values = [req.body.world_name, req.user.id, joinCode]
 
     pool.query(query, values)
@@ -60,8 +60,8 @@ router.post('/', rejectUnauthenticated, (req, res) => {
         })
 }); // END POST NEW WORLD
 
+// Delete specified world
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-    // Delete specified world
     const query = `
                 DELETE FROM "worlds"
                 WHERE id = $1 AND user_id = $2;
@@ -82,7 +82,7 @@ router.post('/join', rejectUnauthenticated, (req, res) => {
                 SELECT $1, "id" FROM "worlds"
                 WHERE "worlds".join_code = $2;
                 `;
-    
+
     pool.query(query, [req.user.id, req.body.join_code])
         .then(result => {
             res.sendStatus(204);

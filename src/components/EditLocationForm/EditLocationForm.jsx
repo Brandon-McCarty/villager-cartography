@@ -41,9 +41,9 @@ function EditLocationForm() {
         console.log('DELETE', editLocation.location_name);
         dispatch({ type: 'DELETE_LOCATION', payload: { id: editLocation.id, world_id: editLocation.world_id } })
         history.push(`/locations/${editLocation.world_id}`)
-      }
+    }
 
-      // Submit stored edit and update database
+    // Submit stored edit and update database
     const updateLocation = (event) => {
         event.preventDefault();
         dispatch({ type: 'UPDATE_LOCATION', payload: editLocation })
@@ -62,7 +62,7 @@ function EditLocationForm() {
             <Header
                 pageTitle={`Edit ${editLocation.location_name}`}
             />
-            
+
             <Box p={1} height={300}>
                 <Paper
                     style={{
@@ -160,21 +160,21 @@ function EditLocationForm() {
                             />
                         </Box>
 
-                        <Button 
-                        style={{
-                            backgroundColor: '#4A6F28'
-                          }}
-                        type="submit"
+                        <Button
+                            style={{
+                                backgroundColor: '#4A6F28'
+                            }}
+                            type="submit"
                         ><EditIcon /> Update
                         </Button>
 
-                            <span className='btn-separator'></span>
+                        <span className='btn-separator'></span>
 
                         <Button
-                        style={{
-                            backgroundColor: '#d43c2c'
-                          }}
-                          onClick={deleteLocation}
+                            style={{
+                                backgroundColor: '#d43c2c'
+                            }}
+                            onClick={deleteLocation}
                         ><DeleteIcon /> Delete
                         </Button>
                     </form>

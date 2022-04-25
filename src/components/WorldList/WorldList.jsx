@@ -51,7 +51,7 @@ function WorldList() {
                     label='Add World'
                     onClick={addNewWorld}><AddIcon /></Button>
             </Box>
-            
+
             <div>
                 {worlds.map(world => {
                     return (

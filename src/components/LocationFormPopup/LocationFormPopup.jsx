@@ -4,7 +4,7 @@ import EditLocationForm from '../EditLocationForm/EditLocationForm';
 // Material UI
 import { Button, Box } from '@material-ui/core';
 
-function LocationFormPopup({ trigger, setTrigger}) {
+function LocationFormPopup({ trigger, setTrigger }) {
 
   // Add Location Form
   return (trigger) ? (
