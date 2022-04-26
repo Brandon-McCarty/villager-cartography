@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux'
+import WorldFormPopup from '../Popup/Popup';
 
 // Styles
 import './WorldItem.css'
@@ -10,8 +12,9 @@ import Swal from 'sweetalert2'
 // Material UI
 import { Paper, Box } from '@material-ui/core'
 import DeleteIcon from '@material-ui/icons/Delete';
+import InfoIcon from '@material-ui/icons/Info';
 
-function WorldItem({ world }) {
+function WorldItem({ world, trigger, setTrigger, joinCodeTrigger, setJoinCodeTrigger }) {
 
     const history = useHistory();
     const dispatch = useDispatch();
@@ -21,6 +24,13 @@ function WorldItem({ world }) {
         console.log('WORLD IS', world)
         dispatch({ type: 'GET_LOCATIONS', payload: world.id })
         history.push(`/locations/${world.id}`)
+    }
+
+    // Display the join code of the world
+    const getJoinCode = () => {
+        setTrigger(true);
+        setJoinCodeTrigger(true);
+        dispatch({ type: 'SET_JOIN_CODE', payload: { join_code: world.join_code } })
     }
 
     const deleteWorld = () => {
@@ -54,6 +64,8 @@ function WorldItem({ world }) {
 
     return (
         <div>
+            <WorldFormPopup />
+
             <Box
                 p={1}
             >
@@ -74,10 +86,18 @@ function WorldItem({ world }) {
                     >{world.world_name}
 
                     </span>
+
                     <button className='delete-btn'
                         onClick={deleteWorld}
                     ><DeleteIcon />
                     </button>
+
+                    <button
+                        onClick={getJoinCode}
+                        className='info-btn'>
+                        <InfoIcon />
+                    </button>
+
                 </Paper>
             </Box>
         </div>

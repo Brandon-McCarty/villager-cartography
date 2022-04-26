@@ -18,6 +18,7 @@ function LocationsList() {
     // Grab the world id from the params
     const id = useParams().id;
 
+    // Trigger to activate location form
     const [locationFormTrigger, setLocationFormTrigger] = useState(false);
 
     useEffect(() => {
@@ -25,8 +26,8 @@ function LocationsList() {
         dispatch({ type: 'GET_LOCATIONS', payload: id });
     }, [id]);
 
+    // Add a new location
     const addNewLocation = () => {
-        console.log('ADDING LOCATION');
         setLocationFormTrigger(true);
     }
 

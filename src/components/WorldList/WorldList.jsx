@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import WorldItem from '../WorldItem/WorldItem';
-import Popup from '../WorldFormPopup/WorldFormPopup';
+import Popup from '../Popup/Popup';
 import Header from '../Header/Header';
 
 // Material UI
@@ -14,11 +14,15 @@ function WorldList() {
     const dispatch = useDispatch();
     const worlds = useSelector(store => store.worldsReducer)
 
-    const [worldFormTrigger, setWorldFormTrigger] = useState(false);
+    const [trigger, setTrigger] = useState(false);
+    const [formTrigger, setFormTrigger] = useState(false);
+
+    const [joinCodeTrigger, setJoinCodeTrigger] = useState(false);
 
     const addNewWorld = () => {
         // Allow the form to conditionally render
-        setWorldFormTrigger(true);
+        setTrigger(true);
+        setFormTrigger(true);
     }
 
     useEffect(() => {
@@ -32,8 +36,12 @@ function WorldList() {
                 pageTitle='Worlds'
             />
             <Popup
-                trigger={worldFormTrigger}
-                setTrigger={setWorldFormTrigger}
+                trigger={trigger}
+                setTrigger={setTrigger}
+                formTrigger={formTrigger}
+                setFormTrigger={setFormTrigger}
+                joinCodeTrigger={joinCodeTrigger}
+                setJoinCodeTrigger={setJoinCodeTrigger}
             />
             <Box
                 pr={1}
@@ -58,6 +66,10 @@ function WorldList() {
                         <WorldItem
                             key={world.id}
                             world={world}
+                            trigger={trigger}
+                            setTrigger={setTrigger}
+                            joinCodeTrigger={joinCodeTrigger}
+                            setJoinCodeTrigger={setJoinCodeTrigger}
                         />)
                 })}
             </div>
