@@ -23,7 +23,6 @@ function WorldForm({ setTrigger, setFormTrigger }) {
 
   // User can enter join code to join an existing world
   const joinWorld = () => {
-    console.log('JOIN');
     dispatch({ type: 'JOIN_WORLD', payload: { join_code: joinCode } });
     setTrigger(false);
     setFormTrigger(false);
@@ -34,6 +33,7 @@ function WorldForm({ setTrigger, setFormTrigger }) {
     <>
 
       <h2>Add a New World</h2>
+
       <form action="submit">
         <TextField
           id='outlined-basic'
@@ -52,6 +52,7 @@ function WorldForm({ setTrigger, setFormTrigger }) {
           onClick={addNewWorld}
         >Add World</Button>
       </form>
+
       <Box
         pt={2}
       >
@@ -76,6 +77,7 @@ function WorldForm({ setTrigger, setFormTrigger }) {
             }}
             onClick={joinWorld}
           >Join World</Button>
+
         </Box>
       </form>
     </>

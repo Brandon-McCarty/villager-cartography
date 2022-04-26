@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from 'react-redux';
-import './WorldFormPopup.css';
+import './Popup.css';
 import WorldForm from '../WorldForm/WorldForm';
 
 // Material UI
@@ -18,7 +18,7 @@ function WorldFormPopup({
   const dispatch = useDispatch();
   const joinCode = useSelector(store => store.joinCodeReducer);
 
-  // Reset all triggers upon closing
+  // Reset all triggers and code reducer upon closing
   const resetTriggers = () => {
     setTrigger(false);
     setFormTrigger(false);
@@ -47,6 +47,7 @@ function WorldFormPopup({
             setTrigger={setTrigger}
             setFormTrigger={setFormTrigger}
           />}
+
         <Box
           pt={4}
         >

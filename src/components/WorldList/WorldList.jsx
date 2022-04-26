@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import WorldItem from '../WorldItem/WorldItem';
-import Popup from '../WorldFormPopup/WorldFormPopup';
+import Popup from '../Popup/Popup';
 import Header from '../Header/Header';
 
 // Material UI

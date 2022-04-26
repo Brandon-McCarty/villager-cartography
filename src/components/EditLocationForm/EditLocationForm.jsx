@@ -29,7 +29,6 @@ function EditLocationForm() {
     const handleExplored = (event) => {
 
         let exploredStatus = event.target.checked
-        console.log(exploredStatus);
         dispatch({
             type: 'EDIT_ONCHANGE_EXPLORED',
             payload: { property: 'explored_status', value: exploredStatus }
@@ -38,7 +37,6 @@ function EditLocationForm() {
 
     // Delete chosen location
     const deleteLocation = () => {
-        console.log('DELETE', editLocation.location_name);
         dispatch({ type: 'DELETE_LOCATION', payload: { id: editLocation.id, world_id: editLocation.world_id } })
         history.push(`/locations/${editLocation.world_id}`)
     }
