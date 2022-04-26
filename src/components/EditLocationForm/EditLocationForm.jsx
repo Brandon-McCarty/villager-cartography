@@ -29,6 +29,7 @@ function EditLocationForm() {
     const handleExplored = (event) => {
 
         let exploredStatus = event.target.checked
+        
         dispatch({
             type: 'EDIT_ONCHANGE_EXPLORED',
             payload: { property: 'explored_status', value: exploredStatus }

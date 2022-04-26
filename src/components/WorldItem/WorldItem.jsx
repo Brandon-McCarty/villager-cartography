@@ -49,7 +49,7 @@ function WorldItem({ world, trigger, setTrigger, joinCodeTrigger, setJoinCodeTri
             confirmButtonText: 'Delete'
         }).then((result) => {
             if (result.isConfirmed) {
-                dispatch({ type: 'DELETE_WORLD', payload: world.id })
+                dispatch({ type: 'DELETE_WORLD', payload: {id: world.id, user_id: world.user_id} })
                 Swal.fire({
                     background: '#C28340',
                     color: 'black',
