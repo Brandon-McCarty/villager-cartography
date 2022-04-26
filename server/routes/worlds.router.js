@@ -62,9 +62,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 // Delete specified world
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-    console.log(req.user.id, 'USER ID', req.body.user_id);
-    
-    if (req.user.id == req.body.user_id) {
+    if (req.user.id === req.body.user_id) {
         const query = `
                 DELETE FROM "worlds"
                 WHERE "id" = $1 AND "user_id" = $2;
