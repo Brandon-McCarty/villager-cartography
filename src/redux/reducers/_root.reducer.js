@@ -5,6 +5,7 @@ import worldsReducer from './worlds.reducer';
 import locationsReducer from './locations.reducer';
 import details from './details.reducer';
 import editLocation from './edit.reducer';
+import joinCodeReducer from './code.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   worldsReducer,
   locationsReducer,
   details,
-  editLocation
+  editLocation,
+  joinCodeReducer
 });
 
 export default rootReducer;

@@ -4,7 +4,7 @@ import { useState } from 'react';
 // Material UI
 import { TextField, Button, Box } from '@material-ui/core';
 
-function WorldForm({ setTrigger }) {
+function WorldForm({ setTrigger, setFormTrigger }) {
 
   const dispatch = useDispatch();
 
@@ -17,8 +17,8 @@ function WorldForm({ setTrigger }) {
     event.preventDefault();
     dispatch({ type: 'ADD_WORLD', payload: { world_name: newWorld } })
     setTrigger(false);
+    setFormTrigger(false);
     setNewWorld('');
-
   }
 
   // User can enter join code to join an existing world
@@ -26,6 +26,7 @@ function WorldForm({ setTrigger }) {
     console.log('JOIN');
     dispatch({ type: 'JOIN_WORLD', payload: { join_code: joinCode } });
     setTrigger(false);
+    setFormTrigger(false);
     setJoinCode('');
   }
 

@@ -24,6 +24,7 @@ import EditLocationForm from '../EditLocationForm/EditLocationForm';
 import Profile from '../Profile/Profile';
 import BottomNav from '../BottomNav/BottomNav';
 
+
 import './App.css';
 
 function App() {
