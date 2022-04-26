@@ -50,7 +50,8 @@ function WorldFormPopup({
         <Box
           pt={4}
         >
-        {joinCodeTrigger &&  <p>The join code for this world is: {joinCode.join_code}</p> }
+        {joinCodeTrigger &&  <div>The join code for this world is: 
+          <p className='join-code'>{joinCode.join_code}</p></div> }
         </Box>
       </div>
     </div>

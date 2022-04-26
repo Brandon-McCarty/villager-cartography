@@ -32,7 +32,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     // Generate random join code
     let joinCode = chance.string({
         length: 10,
-        pool: 'abcdefghjkmnpqrstuvwxyzABCDEFGHJKMNPQRSTUVWXYZ123456789'
+        pool: 'ABCDEFGHJKMNPQRSTUVWXYZ123456789'
     });
 
     const query = `
