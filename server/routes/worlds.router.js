@@ -62,7 +62,9 @@ router.post('/', rejectUnauthenticated, (req, res) => {
 
 // Delete specified world
 router.delete('/:id', rejectUnauthenticated, (req, res) => {
-    if (req.user.id === req.body.user_id) {
+    console.log(req.user.id, 'USER ID', req.body.user_id);
+    
+    if (req.user.id == req.body.user_id) {
         const query = `
                 DELETE FROM "worlds"
                 WHERE "id" = $1 AND "user_id" = $2;
@@ -71,7 +73,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
             .then(result => {
                 res.sendStatus(204);
             }).catch(err => {
-                console.log('Error in creating new world', err);
+                console.log('Error in deleting world', err);
             })
     } else if (req.user.id) {
         const query = `
@@ -82,7 +84,7 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
             .then(result => {
                 res.sendStatus(204);
             }).catch(err => {
-                console.log('Error in creating new world', err);
+                console.log('Error in deleting new world', err);
             })
     } else {
         res.sendStatus(403);
