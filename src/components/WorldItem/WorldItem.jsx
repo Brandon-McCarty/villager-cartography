@@ -35,11 +35,12 @@ function WorldItem({ world, trigger, setTrigger, joinCodeTrigger, setJoinCodeTri
 
     const deleteWorld = () => {
 
-        console.log('DELETING WORLD', world.world_name);
-
         Swal.fire({
             title: `Are you sure you want to delete ${world.world_name}?`,
-            text: "This cannot be undone.",
+            text: `
+                    If you created this world, this action will be permanent,
+                    If you did not create this world, you may rejoin.
+                    `,
             icon: 'warning',
             background: '#C28340',
             color: 'black',
