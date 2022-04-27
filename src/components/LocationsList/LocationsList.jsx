@@ -42,6 +42,9 @@ function LocationsList() {
     // Show message board
     const showMessageBoard = () => {
         console.log('Going to message board for', id);
+        setTrigger(true);
+        setMessageTrigger(true);
+        dispatch({type: 'GET_MESSAGES', payload: id});
     }
 
 

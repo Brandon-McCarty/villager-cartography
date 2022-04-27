@@ -1,7 +1,7 @@
 import {useDispatch} from 'react-redux';
 import './LocationFormPopup.css'
 import LocationForm from '../LocationForm/LocationForm';
-import EditLocationForm from '../EditLocationForm/EditLocationForm';
+import MessageBoard from '../MessageBoard/MessageBoard';
 // Material UI
 import { Button, Box } from '@material-ui/core';
 
@@ -41,13 +41,15 @@ function LocationFormPopup({
           }}
         >Close</Button>
         <Box m={2}>
-          
+
           {locationFormTrigger && 
           <LocationForm
             setTrigger={setTrigger}
           />}
 
-
+          {messageTrigger && 
+          <MessageBoard />
+          }
 
         </Box>
       </div>
