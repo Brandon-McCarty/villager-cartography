@@ -46,6 +46,7 @@ function LocationFormPopup({
           {locationFormTrigger && 
           <LocationForm
             setTrigger={setTrigger}
+            setLocationFormTrigger={setLocationFormTrigger}
           />}
 </Box>
           {messageTrigger && 

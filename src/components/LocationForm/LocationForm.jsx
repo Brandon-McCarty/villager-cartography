@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 // Material UI
 import { Box, Button, TextField } from '@material-ui/core';
 
-function LocationForm({ setTrigger }) {
+function LocationForm({ setTrigger, setLocationFormTrigger }) {
 
     const dispatch = useDispatch();
     const id = useParams().id;
@@ -34,6 +34,7 @@ function LocationForm({ setTrigger }) {
             }
         })
         setTrigger(false);
+        setLocationFormTrigger(false);
     }
 
     return (
