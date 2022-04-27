@@ -2,8 +2,10 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
+
 // Get messages for world
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
   
     const query = `
                 SELECT "message_board".id, to_char("message_board".date, 'mm/dd/yy') as "date", to_char("message_board".time, 'hh12:mi AM') as "time", "message_board".message, "message_board".world_id, "user".username
@@ -20,11 +22,9 @@ router.get('/:id', (req, res) => {
         })
 });
 
-/**
- * POST route template
- */
+
 router.post('/', (req, res) => {
-  // POST route code here
+  
 });
 
 module.exports = router;
