@@ -6,6 +6,7 @@ import worldsSaga from './worlds.saga';
 import locationsSaga from './locations.saga';
 import detailsSaga from './details.saga';
 import editSaga from './edit.saga';
+import messageSaga from './messages.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     locationsSaga(),
     detailsSaga(),
     editSaga(),
+    messageSaga()
   ]);
 }
