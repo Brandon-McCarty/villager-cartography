@@ -87,6 +87,7 @@ function LocationsList() {
                 setLocationFormTrigger={setLocationFormTrigger}
                 messageTrigger={messageTrigger}
                 setMessageTrigger={setMessageTrigger}
+                worldId={id}
             />
 
             {locations?.map(location => {

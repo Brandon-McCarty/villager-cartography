@@ -11,7 +11,8 @@ function LocationFormPopup({
   locationFormTrigger,
   setLocationFormTrigger,
   messageTrigger,
-  setMessageTrigger
+  setMessageTrigger,
+  worldId
 }) {
 
   const dispatch = useDispatch();
@@ -48,7 +49,9 @@ function LocationFormPopup({
           />}
 </Box>
           {messageTrigger && 
-          <MessageBoard />
+          <MessageBoard 
+            worldId={worldId}
+          />
           }
 
         

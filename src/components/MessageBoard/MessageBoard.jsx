@@ -6,7 +6,7 @@ import './MessageBoard.css';
 import { Box, TextField, Button, Paper } from '@material-ui/core'
 import SendIcon from '@material-ui/icons/Send';
 
-function MessageBoard() {
+function MessageBoard({worldId}) {
 
     const dispatch = useDispatch();
 
@@ -15,7 +15,8 @@ function MessageBoard() {
     const [newMessage, setNewMessage] = useState('');
 
     const addMessage = () => {
-
+        dispatch({type: 'ADD_MESSAGE', payload: {message: newMessage, world_id: worldId}});
+        setNewMessage('');
     }
 
     return (
@@ -26,7 +27,8 @@ function MessageBoard() {
         <Paper
             style={{
                 backgroundColor: 'lightgray',
-                fontSize: '14px'
+                fontSize: '14px',
+                fontFamily: 'sans-serif'
             }}
         >
             <ul>
@@ -51,7 +53,6 @@ function MessageBoard() {
                         id='outlined-basic'
                         label='Enter Message'
                         variant='outlined'
-                        multiline
                         value={newMessage}
                         onChange={(event) => setNewMessage(event.target.value)}
                     />

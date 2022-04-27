@@ -11,13 +11,21 @@ function* getMessages (action) {
     }
 }
 
-
+function* addMessage (action) {
+    try {
+        yield axios.post('/messages', action.payload)
+        yield put({type: 'GET_MESSAGES', payload: action.payload.world_id})
+    } catch (err) {
+        console.log(err);
+    }
+}
 
 
 
 
 function* messageSaga () {
-    yield takeEvery('GET_MESSAGES', getMessages)
+    yield takeEvery('GET_MESSAGES', getMessages);
+    yield takeEvery('ADD_MESSAGE', addMessage)
 }
 
 export default messageSaga;
