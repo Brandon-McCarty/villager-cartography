@@ -46,12 +46,12 @@ function LocationFormPopup({
           <LocationForm
             setTrigger={setTrigger}
           />}
-
+</Box>
           {messageTrigger && 
           <MessageBoard />
           }
 
-        </Box>
+        
       </div>
     </div>
   ) : '';
