@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react'
 // Material UI
 import { Button, Box } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
+import ForumIcon from '@material-ui/icons/Forum';
 
 import LocationsItem from '../LocationsItem/LocationsItem';
 import LocationFormPopup from '../LocationFormPopup/LocationFormPopup';
@@ -18,45 +19,71 @@ function LocationsList() {
     // Grab the world id from the params
     const id = useParams().id;
 
+    // Trigger to activate popup
+    const [trigger, setTrigger] = useState(false);
+
     // Trigger to activate location form
     const [locationFormTrigger, setLocationFormTrigger] = useState(false);
+
+    // Trigger to activate message board
+    const [messageTrigger, setMessageTrigger] = useState(false);
 
     useEffect(() => {
         // Get locations of world based on world id -- maybe change to join code for more security
         dispatch({ type: 'GET_LOCATIONS', payload: id });
     }, [id]);
 
-    // Add a new location
+    // Get form to add new location
     const addNewLocation = () => {
+        setTrigger(true);
         setLocationFormTrigger(true);
     }
+
+    // Show message board
+    const showMessageBoard = () => {
+        console.log('Going to message board for', id);
+    }
+
 
     return (
         <div>
             <Header
                 pageTitle='Locations'
             />
+
             <Box
                 pr={1}
                 pb={1}
-                style={{
-                    display: 'flex',
-                    justifyContent: 'end',
-                }}
-
             >
+                <Button
+                    onClick={showMessageBoard}
+                    style={{
+                        backgroundColor: "#4A6F28",
+                        left: '20px'
+                    }}
+                >
+                    <ForumIcon />
+                </Button>
+
                 <Button
                     style={{
                         backgroundColor: "#4A6F28",
+                        position: 'absolute',
+                        right: '20px'
                     }}
                     onClick={addNewLocation}
                 >
                     <AddIcon />
                 </Button>
             </Box>
+
             <LocationFormPopup
-                trigger={locationFormTrigger}
-                setTrigger={setLocationFormTrigger}
+                trigger={trigger}
+                setTrigger={setTrigger}
+                locationFormTrigger={locationFormTrigger}
+                setLocationFormTrigger={setLocationFormTrigger}
+                messageTrigger={messageTrigger}
+                setMessageTrigger={setMessageTrigger}
             />
 
             {locations?.map(location => {

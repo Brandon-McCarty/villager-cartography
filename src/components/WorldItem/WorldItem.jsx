@@ -1,16 +1,15 @@
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux';
 import WorldFormPopup from '../Popup/Popup';
 
 // Styles
-import './WorldItem.css'
+import './WorldItem.css';
 
 // Sweet Alert 2
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
 
 // Material UI
-import { Paper, Box } from '@material-ui/core'
+import { Paper, Box } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import InfoIcon from '@material-ui/icons/Info';
 
@@ -21,9 +20,9 @@ function WorldItem({ world, trigger, setTrigger, joinCodeTrigger, setJoinCodeTri
 
     // Get all locations associated with chosen world
     const getLocations = () => {
-        console.log('WORLD IS', world)
-        dispatch({ type: 'GET_LOCATIONS', payload: world.id })
-        history.push(`/locations/${world.id}`)
+        console.log('WORLD IS', world);
+        dispatch({ type: 'GET_LOCATIONS', payload: world.id });
+        history.push(`/locations/${world.id}`);
     }
 
     // Display the join code of the world
