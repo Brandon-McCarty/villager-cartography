@@ -15,7 +15,7 @@ function Profile() {
 
   useEffect(() => {
     // dispatch to get all worlds for current user to display on the DOM
-    dispatch({ type: 'GET_WORLDS' });
+    dispatch({ type: 'GET_USER_WORLDS' });
   }, []);
 
   return (
