@@ -54,7 +54,8 @@ function LocationDetails() {
 
       <Button
         style={{
-          backgroundColor: '#4A6F28'
+          backgroundColor: '#4A6F28',
+          color: 'white',
         }}
         onClick={backToLocations}
       ><ArrowBackIcon /> Locations</Button>
@@ -78,7 +79,8 @@ function LocationDetails() {
 
           <Button
             style={{
-              backgroundColor: '#4A6F28'
+              backgroundColor: '#4A6F28',
+              color: 'white',
             }}
             onClick={editLocation}
           >

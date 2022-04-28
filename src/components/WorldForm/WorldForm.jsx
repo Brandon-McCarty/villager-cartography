@@ -29,6 +29,10 @@ function WorldForm({ setTrigger, setFormTrigger }) {
     setJoinCode('');
   }
 
+  const addJoinCode = () => {
+    setJoinCode('XTCW66HV1T');
+  }
+
   return (
     <>
 
@@ -56,7 +60,7 @@ function WorldForm({ setTrigger, setFormTrigger }) {
       <Box
         pt={2}
       >
-        <h2>Join a World</h2>
+        <h2><span onClick={addJoinCode}>Join</span> a World</h2>
       </Box>
 
       <form action="submit">

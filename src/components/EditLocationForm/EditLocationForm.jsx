@@ -55,6 +55,8 @@ function EditLocationForm() {
         dispatch({ type: 'GET_EDIT_LOCATION', payload: id });
     }, [id]);
 
+
+    console.log('EXPLORED STATUS IS', editLocation.explored_status);
     return (
         <div>
 
@@ -161,7 +163,8 @@ function EditLocationForm() {
 
                         <Button
                             style={{
-                                backgroundColor: '#4A6F28'
+                                backgroundColor: '#4A6F28',
+                                color: 'white',
                             }}
                             type="submit"
                         ><EditIcon /> Update
