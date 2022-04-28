@@ -55,6 +55,9 @@ function WorldList() {
                 <Button
                     style={{
                         backgroundColor: "#4A6F28",
+                        color: 'white',
+                        stroke: 'black',
+                        strokeWidth: '0.1px'
                     }}
                     label='Add World'
                     onClick={addNewWorld}><AddIcon /></Button>

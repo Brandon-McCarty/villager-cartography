@@ -1,4 +1,4 @@
-import {useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './LocationFormPopup.css'
 import LocationForm from '../LocationForm/LocationForm';
 import MessageBoard from '../MessageBoard/MessageBoard';
@@ -22,7 +22,7 @@ function LocationFormPopup({
     setTrigger(false);
     setLocationFormTrigger(false);
     setMessageTrigger(false);
-    dispatch({type: 'CLEAR_MESSAGES'});
+    dispatch({ type: 'CLEAR_MESSAGES' });
   }
 
 
@@ -43,19 +43,19 @@ function LocationFormPopup({
         >Close</Button>
         <Box m={2}>
 
-          {locationFormTrigger && 
-          <LocationForm
-            setTrigger={setTrigger}
-            setLocationFormTrigger={setLocationFormTrigger}
-          />}
-</Box>
-          {messageTrigger && 
-          <MessageBoard 
+          {locationFormTrigger &&
+            <LocationForm
+              setTrigger={setTrigger}
+              setLocationFormTrigger={setLocationFormTrigger}
+            />}
+        </Box>
+        {messageTrigger &&
+          <MessageBoard
             worldId={worldId}
           />
-          }
+        }
 
-        
+
       </div>
     </div>
   ) : '';

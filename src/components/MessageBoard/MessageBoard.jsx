@@ -27,14 +27,14 @@ function MessageBoard({worldId}) {
         <Paper
             style={{
                 backgroundColor: 'lightgray',
-                fontSize: '14px',
+                fontSize: '20px',
                 fontFamily: 'sans-serif'
             }}
         >
             <ul>
                 {messages.map(message => {
                     return (
-                        <li key={message.id}>{message.date} {message.time} {message.username}: {message.message}</li>
+                        <li key={message.id}> {message.username}: {message.message}</li>
                     )
                 })}
             </ul>

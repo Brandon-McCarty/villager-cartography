@@ -62,7 +62,10 @@ function LocationsList() {
                     onClick={showMessageBoard}
                     style={{
                         backgroundColor: "#4A6F28",
-                        left: '20px'
+                        left: '20px',
+                        color: 'white',
+                        stroke: 'black',
+                        strokeWidth: '0.3px'
                     }}
                 >
                     <ForumIcon />
@@ -76,7 +79,14 @@ function LocationsList() {
                     }}
                     onClick={addNewLocation}
                 >
-                    <AddIcon />
+                    <AddIcon 
+                        style={{
+                            color: 'white',
+                            textShadow: '0 0 0.8px black',
+                            stroke: 'black',
+                            strokeWidth: '0.1px'
+                        }}
+                    />
                 </Button>
             </Box>
 
