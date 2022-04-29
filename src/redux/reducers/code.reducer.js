@@ -4,7 +4,7 @@ const joinCodeReducer = (state = {}, action) => {
             return action.payload;
         case 'CLEAR_JOIN_CODE':
             return {};
-      default:
+        default:
             return state;
     }
 };

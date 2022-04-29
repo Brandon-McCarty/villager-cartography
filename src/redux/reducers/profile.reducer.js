@@ -1,10 +1,10 @@
 const profileReducer = (state = [], action) => {
-    switch (action.type) {
-      case 'SET_USER_WORLDS':
-        return action.payload;
-      default:
-        return state;
-    }
-  };
+  switch (action.type) {
+    case 'SET_USER_WORLDS':
+      return action.payload;
+    default:
+      return state;
+  }
+};
 
-  export default profileReducer;
+export default profileReducer;
