@@ -32,6 +32,9 @@ function WorldItem({ world, trigger, setTrigger, joinCodeTrigger, setJoinCodeTri
         dispatch({ type: 'SET_JOIN_CODE', payload: { join_code: world.join_code } })
     }
 
+    // Delete selected world
+    // Will remove from list if not the original creator
+    // Original creator can delete world completely
     const deleteWorld = () => {
 
         Swal.fire({
@@ -49,7 +52,7 @@ function WorldItem({ world, trigger, setTrigger, joinCodeTrigger, setJoinCodeTri
             confirmButtonText: 'Delete'
         }).then((result) => {
             if (result.isConfirmed) {
-                dispatch({ type: 'DELETE_WORLD', payload: {id: world.id, user_id: world.user_id} })
+                dispatch({ type: 'DELETE_WORLD', payload: { id: world.id, user_id: world.user_id } })
                 Swal.fire({
                     background: '#C28340',
                     color: 'black',

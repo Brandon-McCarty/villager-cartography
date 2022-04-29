@@ -29,6 +29,7 @@ function WorldForm({ setTrigger, setFormTrigger }) {
     setJoinCode('');
   }
 
+  // Add join code for presentation
   const addJoinCode = () => {
     setJoinCode('XTCW66HV1T');
   }

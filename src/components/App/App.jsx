@@ -8,13 +8,9 @@ import {
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
-
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import AboutPage from '../AboutPage/AboutPage';
-import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import WorldList from '../WorldList/WorldList';
@@ -39,14 +35,13 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <Nav /> */}
+
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/login" />
 
           {/* Visiting localhost:3000/about will show the about page. */}
           <Route
-            // shows AboutPage at all times (logged in or not)
             exact
             path="/about"
           >
@@ -96,7 +91,7 @@ function App() {
               <Redirect to="/worlds" />
               :
               // Otherwise, show the Landing page
-              <LandingPage />
+              <LoginPage />
             }
           </Route>
 
@@ -146,7 +141,7 @@ function App() {
 
 
         </Switch>
-        
+
         {/* <Footer /> */}
         <BottomNav />
       </div>

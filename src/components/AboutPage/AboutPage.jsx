@@ -1,14 +1,10 @@
 import React from 'react';
 import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
-import {Paper, Box} from '@material-ui/core'
+import { Paper, Box } from '@material-ui/core'
 
 import './AboutPage.css'
-
-// This is one of our simplest components
-// It doesn't have local state,
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is'
 
 function AboutPage() {
   return (
@@ -19,14 +15,14 @@ function AboutPage() {
       <Box
         p={1}
       >
-      <Paper className='about-center'>
+        <Paper className='about-center'>
 
-        <h1>Next Steps</h1>
-        
+          <h1>Next Steps</h1>
+
           <p>Search through locations</p>
-        
-        <h1>Technologies Used</h1>
-        
+
+          <h1>Technologies Used</h1>
+
           <p>React</p>
           <p>React-Redux</p>
           <p>React-Saga</p>
@@ -37,16 +33,17 @@ function AboutPage() {
           <p>Sweet Alerts 2</p>
           <p>Material UI</p>
           <p>Chance.js</p>
-         
+
           <h1>Thank You</h1>
-          
-            <p>Prime Academy</p>
-            <p>Dane</p>
-            <p>Butler Cohort</p>
-          
-        
-      </Paper>
+
+          <p>Prime Academy</p>
+          <p>Dane</p>
+          <p>Butler Cohort</p>
+
+          <Footer />
+        </Paper>
       </Box>
+      
     </div>
   );
 }
