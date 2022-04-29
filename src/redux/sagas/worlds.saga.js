@@ -42,13 +42,22 @@ function* joinWorld (action) {
     }
 }
 
+function* getUserWorlds () {
+    try {
+        const userWorlds = yield axios.get()
+    } catch (err) {
+        console.log(err);
+    }
+}
+
 
 // All sagas for /worlds route
 function* worldsSaga () {
     yield takeEvery('GET_WORLDS', getWorlds);
     yield takeEvery('ADD_WORLD', addNewWorld);
     yield takeEvery('DELETE_WORLD', deleteWorld);
-    yield takeEvery('JOIN_WORLD', joinWorld)
+    yield takeEvery('JOIN_WORLD', joinWorld);
+    yield takeEvery('GET_USER_WORLDS', getUserWorlds)
 }
 
 export default worldsSaga;

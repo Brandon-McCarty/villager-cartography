@@ -7,6 +7,7 @@ import details from './details.reducer';
 import editLocation from './edit.reducer';
 import joinCodeReducer from './code.reducer';
 import messagesReducer from './messages.reducer';
+import profileReducer from './profile.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -22,7 +23,8 @@ const rootReducer = combineReducers({
   details,
   editLocation,
   joinCodeReducer,
-  messagesReducer
+  messagesReducer,
+  profileReducer
 });
 
 export default rootReducer;
