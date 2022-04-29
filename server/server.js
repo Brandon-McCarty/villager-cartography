@@ -14,6 +14,7 @@ const locationsRouter = require('./routes/locations.router');
 const detailsRouter = require('./routes/details.router');
 const editRouter = require('./routes/edit.router');
 const messagesRouter = require('./routes/messages.router');
+const profileRouter = require('./routes/profile.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -33,6 +34,7 @@ app.use('/locations', locationsRouter);
 app.use('/details', detailsRouter);
 app.use('/edit', editRouter);
 app.use('/messages', messagesRouter);
+app.use('/profile', profileRouter);
 
 // Serve static files
 app.use(express.static('build'));

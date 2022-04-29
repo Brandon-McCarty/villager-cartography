@@ -103,7 +103,7 @@ router.post('/join', rejectUnauthenticated, (req, res) => {
 
     pool.query(query, [req.user.id, req.body.join_code])
         .then(result => {
-            res.sendStatus(204);
+            res.sendStatus(201);
         }).catch(err => {
             console.log('Error in joining world', err);
         })

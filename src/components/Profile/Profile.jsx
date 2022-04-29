@@ -11,7 +11,7 @@ function Profile() {
   const dispatch = useDispatch();
 
   const user = useSelector(store => store.user);
-  const worlds = useSelector(store => store.worldsReducer)
+  const worlds = useSelector(store => store.profileReducer)
 
   useEffect(() => {
     // dispatch to get all worlds for current user to display on the DOM
@@ -27,8 +27,8 @@ function Profile() {
       <Box
         align='center'
       >
-        <h1>{user.username}</h1>
-        <h2>Worlds</h2>
+
+        <h2>Worlds Owned</h2>
       </Box>
 
       <div>
