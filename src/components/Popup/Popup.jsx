@@ -1,4 +1,4 @@
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './Popup.css';
 import WorldForm from '../WorldForm/WorldForm';
 
@@ -6,9 +6,9 @@ import WorldForm from '../WorldForm/WorldForm';
 import { Button, Box } from '@material-ui/core';
 
 
-function WorldFormPopup({ 
+function WorldFormPopup({
   joinCodeTrigger,
-  setJoinCodeTrigger, 
+  setJoinCodeTrigger,
   trigger,
   setTrigger,
   formTrigger,
@@ -23,7 +23,7 @@ function WorldFormPopup({
     setTrigger(false);
     setFormTrigger(false);
     setJoinCodeTrigger(false);
-    dispatch({type: 'CLEAR_JOIN_CODE'});
+    dispatch({ type: 'CLEAR_JOIN_CODE' });
   }
 
 
@@ -51,8 +51,8 @@ function WorldFormPopup({
         <Box
           pt={4}
         >
-        {joinCodeTrigger &&  <div>The join code for this world is: 
-          <p className='join-code'>{joinCode.join_code}</p></div> }
+          {joinCodeTrigger && <div>The join code for this world is:
+            <p className='join-code'>{joinCode.join_code}</p></div>}
         </Box>
       </div>
     </div>

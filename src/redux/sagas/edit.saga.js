@@ -9,16 +9,16 @@ function* getEditLocation(action) {
         yield put({ type: 'SET_EDIT_LOCATION', payload: editDetails.data[0] })
     } catch (err) {
         console.log(err);
-        
+
     }
 }
 
-function* updateLocation (action) {
+function* updateLocation(action) {
     // Submit the edited information to the server and database
     try {
-        console.log(action.payload)  
+        console.log(action.payload)
         yield axios.put(`/edit/${action.payload.id}`, action.payload)
-        yield put({type: 'GET_LOCATIONS', payload: action.payload.world_id})
+        yield put({ type: 'GET_LOCATIONS', payload: action.payload.world_id })
     } catch (err) {
         console.log(err);
     }

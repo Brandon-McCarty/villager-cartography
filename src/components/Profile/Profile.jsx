@@ -21,15 +21,8 @@ function Profile() {
   return (
     <div>
       <Header
-        pageTitle={`${user.username}'s Profile`}
+        pageTitle={`${user.username}'s Worlds Owned`}
       />
-
-      <Box
-        align='center'
-      >
-
-        <h2>Worlds Owned</h2>
-      </Box>
 
       <div>
         {worlds.map(world => {

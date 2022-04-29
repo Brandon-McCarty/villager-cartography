@@ -37,6 +37,7 @@ function LocationForm({ setTrigger, setLocationFormTrigger }) {
         setLocationFormTrigger(false);
     }
 
+    // Set data for presentation
     const setData = () => {
         setNewLocationName('Cave System');
         setXCoordinate(249);

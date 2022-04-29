@@ -44,7 +44,7 @@ function LocationsList() {
         console.log('Going to message board for', id);
         setTrigger(true);
         setMessageTrigger(true);
-        dispatch({type: 'GET_MESSAGES', payload: id});
+        dispatch({ type: 'GET_MESSAGES', payload: id });
     }
 
 
@@ -79,7 +79,7 @@ function LocationsList() {
                     }}
                     onClick={addNewLocation}
                 >
-                    <AddIcon 
+                    <AddIcon
                         style={{
                             color: 'white',
                             textShadow: '0 0 0.8px black',

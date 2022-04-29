@@ -6,7 +6,7 @@ import './MessageBoard.css';
 import { Box, TextField, Button, Paper } from '@material-ui/core'
 import SendIcon from '@material-ui/icons/Send';
 
-function MessageBoard({worldId}) {
+function MessageBoard({ worldId }) {
 
     const dispatch = useDispatch();
 
@@ -14,8 +14,10 @@ function MessageBoard({worldId}) {
 
     const [newMessage, setNewMessage] = useState('');
 
-    const addMessage = () => {
-        dispatch({type: 'ADD_MESSAGE', payload: {message: newMessage, world_id: worldId}});
+    // Add new message to world's message board
+    const addMessage = (event) => {
+        event.preventDefault();
+        dispatch({ type: 'ADD_MESSAGE', payload: { message: newMessage, world_id: worldId } });
         setNewMessage('');
     }
 
@@ -24,28 +26,28 @@ function MessageBoard({worldId}) {
             pt={2}
         >
 
-        <Paper
-            style={{
-                backgroundColor: 'lightgray',
-                fontSize: '20px',
-                fontFamily: 'sans-serif'
-            }}
-        >
-            <ul>
-                {messages.map(message => {
-                    return (
-                        <li key={message.id}> {message.username}: {message.message}</li>
-                    )
-                })}
-            </ul>
+            <Paper
+                style={{
+                    backgroundColor: 'lightgray',
+                    fontSize: '20px',
+                    fontFamily: 'sans-serif'
+                }}
+            >
+                <ul>
+                    {messages.map(message => {
+                        return (
+                            <li key={message.id}> {message.username}: {message.message}</li>
+                        )
+                    })}
+                </ul>
             </Paper>
             <form onSubmit={addMessage}>
                 <Box
                     pt={1}
                     pb={1}
                     style={{
-                            display: 'flex',
-                            justifyContent: 'center'
+                        display: 'flex',
+                        justifyContent: 'center'
                     }}
                 >
                     <TextField
@@ -62,7 +64,7 @@ function MessageBoard({worldId}) {
                             backgroundColor: '#4A6F28',
                             padding: '1px 10px',
                             marginLeft: '8px',
-                            
+
                         }}
                         type="submit"
                     >Send <SendIcon />

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import './LocationsItem.css'
 
 // Material UI
-import { Paper, Box} from '@material-ui/core'
+import { Paper, Box } from '@material-ui/core'
 
 // Display most beneficial information to user at a quick glance
 function LocationsItem({ location }) {
