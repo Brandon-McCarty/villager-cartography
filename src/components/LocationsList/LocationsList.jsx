@@ -100,7 +100,7 @@ function LocationsList() {
                 worldId={id}
             />
 
-            {locations?.map(location => {
+            {locations.map(location => {
                 return (
                     <LocationsItem
                         key={location.id}

@@ -25,7 +25,7 @@ function AboutPage() {
 
           <p>React</p>
           <p>React-Redux</p>
-          <p>React-Saga</p>
+          <p>Redux-Saga</p>
           <p>Node</p>
           <p>Express</p>
           <p>Axios</p>
@@ -36,7 +36,7 @@ function AboutPage() {
 
           <h1>Thank You</h1>
 
-          <p>Prime Academy</p>
+          <p>Prime Digital Academy</p>
           <p>Dane</p>
           <p>Butler Cohort</p>
 

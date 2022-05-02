@@ -36,7 +36,7 @@ function MessageBoard({ worldId }) {
                 <ul>
                     {messages.map(message => {
                         return (
-                            <li key={message.id}> {message.username}: {message.message}</li>
+                            <li key={message.id}> <span className='username'>{message.username}</span>: {message.message}</li>
                         )
                     })}
                 </ul>
