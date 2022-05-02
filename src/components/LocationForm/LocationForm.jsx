@@ -37,20 +37,11 @@ function LocationForm({ setTrigger, setLocationFormTrigger }) {
         setLocationFormTrigger(false);
     }
 
-    // Set data for presentation
-    const setData = () => {
-        setNewLocationName('Cave System');
-        setXCoordinate(249);
-        setYCoordinate(45);
-        setZCoordinate(152);
-        setExploredStatus(false);
-    }
-
     return (
         <div>
             <form action="submit" onSubmit={addLocation}>
 
-                <h2><span onClick={setData}>Add</span> a Location</h2>
+                <h2>Add a Location</h2>
 
                 <Box
                     pt={1}
