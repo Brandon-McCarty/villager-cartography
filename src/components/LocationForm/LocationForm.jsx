@@ -43,7 +43,6 @@ function LocationForm({ setTrigger, setLocationFormTrigger }) {
         setXCoordinate(249);
         setYCoordinate(45);
         setZCoordinate(152);
-        setDescription('Mine shaft in here');
         setExploredStatus(false);
     }
 

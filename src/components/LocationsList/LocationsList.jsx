@@ -47,7 +47,7 @@ function LocationsList() {
         dispatch({ type: 'GET_MESSAGES', payload: id });
     }
 
-
+console.log('LOCATIONS', locations);
     return (
         <div>
             <Header

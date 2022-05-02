@@ -20,6 +20,8 @@ import EditLocationForm from '../EditLocationForm/EditLocationForm';
 import Profile from '../Profile/Profile';
 import BottomNav from '../BottomNav/BottomNav';
 
+import {Toolbar} from '@material-ui/core'
+
 
 import './App.css';
 
@@ -143,6 +145,7 @@ function App() {
         </Switch>
 
         {/* <Footer /> */}
+        <Toolbar />
         <BottomNav />
       </div>
     </Router>

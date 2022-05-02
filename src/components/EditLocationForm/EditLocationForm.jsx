@@ -1,6 +1,6 @@
 import '../LocationDetails/LocationDetails.css'
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import Header from '../Header/Header';
 
@@ -15,7 +15,6 @@ function EditLocationForm() {
     const id = useParams().id;
     const history = useHistory();
     const editLocation = useSelector(store => store.editLocation);
-
 
     // Update and store the information to edit as it is being input
     const handleChange = (event, property) => {
@@ -76,6 +75,7 @@ function EditLocationForm() {
                     }}
                     align='center'
                 >
+
                     <form action="submit" onSubmit={updateLocation}>
                         <Box
                             pt={1}
@@ -134,17 +134,19 @@ function EditLocationForm() {
                         </Box>
 
                         <Box
-                            pt={1}
-                            pb={1}
+                            pt={2}
+                            pb={2}
                         >
                             <input
                                 type="checkbox"
                                 id="explore"
                                 name="explore"
-                                defaultChecked={editLocation.explored_status || ''}
+                                defaultChecked={editLocation.explored_status}
                                 onChange={handleExplored}
                             />
                             <label htmlFor="explore">Mark as Explored</label>
+                            <p>Click above mark to toggle</p>
+                            <p>Click a few times to revert to unexplored - fix coming</p>
                         </Box>
 
                         <Box
