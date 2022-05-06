@@ -40,6 +40,10 @@ to start the database
 
 ## Usage
 
+If you do not have an account, you must first create an account via the registration form. Once an account is created, or if already created, login using the existing credentials. 
+
+Upon loggin in, the user is brought to their worlds page. On this page, the user can see their existing Minecraft worlds. If the user does not have a world or wishes to add another world, they can hit the '+' icon in the top right to access the form to create a new world. In this form, the user can enter the name of a new world or join an existing world which has already been created. Joining a world is done by entering the join code given for the world. The join code can be obtained by hitting the information icon on the left side of the card with the world name and sharing the given code with whoever you wish to give access. The last feature of the worlds page is the delete button. Hitting this button has two outcomes, the first is if you are the original creator of the selected world to delete, you have the option to permanently delete the world and its contents from the database entirely. The second potential delete outcome is to remove the world from your list of worlds. This allows a user to rejoin a world if they are not the original creator of the world. Clicking on the world's name will bring the user to the next section of the application, the locations.
+
 
 
 
